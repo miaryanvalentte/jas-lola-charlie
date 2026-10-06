@@ -13,7 +13,7 @@ Feedback from the user on daily evening emails (Figma file "Flow Templates (Copy
 - Lifestyle headlines are good (e.g. "Beat the Monday blues"), but the subtext/CTA/roundel must still carry the core messages above.
 - Never reuse the same hero subtext or CTA wording across emails. Write fresh subtext and a fresh CTA every time to avoid customer fatigue.
 - Before writing, check the subtext/CTA on the most recent emails on the page and make sure the new ones are clearly different (not just a word swapped).
-  - Already used: "Get up to 50% off cosy favourites" / "Shop Tonight's Deals" (Sat 10 Oct), "Get up to 50% off your favourites" / "Shop Your Deals Early" (Sun 11 Oct), "VIP early access: tomorrow's deals, up to 44% off" / "Unlock Early Access" (Mon 11 Oct). Retired draft, also don't reuse: "Swap the stress for scent and save up to 44%" / "Start Unwinding".
+  - Already used: "Get up to 50% off cosy favourites" / "Shop Tonight's Deals" (Sat 10 Oct), "Get up to 50% off your favourites" / "Shop Your Deals Early" (Sun 11 Oct), "As VIP, you get tomorrow's deals, tonight" / "Unlock up to 50% off" (Mon 11 Oct, user's final edit). Retired drafts, also don't reuse: "VIP early access: tomorrow's deals, up to 44% off" / "Unlock Early Access"; "Swap the stress for scent and save up to 44%" / "Start Unwinding".
 
 ## Free gift banner
 - No brown / dark espresso backgrounds. Use light, warm, bright backgrounds (cream to soft gold worked).
