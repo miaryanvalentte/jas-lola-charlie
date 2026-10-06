@@ -14,6 +14,7 @@ Feedback from the user on daily evening emails (Figma file "Flow Templates (Copy
 - Never reuse the same hero subtext or CTA wording across emails. Write fresh subtext and a fresh CTA every time to avoid customer fatigue.
 - Before writing, check the subtext/CTA on the most recent emails on the page and make sure the new ones are clearly different (not just a word swapped).
   - Already used: "Get up to 50% off cosy favourites" / "Shop Tonight's Deals" (Sat 10 Oct), "Get up to 50% off your favourites" / "Shop Your Deals Early" (Sun 11 Oct), "As VIP, you get tomorrow's deals, tonight" / "Unlock up to 50% off" (Mon 11 Oct, user's final edit). Retired drafts, also don't reuse: "VIP early access: tomorrow's deals, up to 44% off" / "Unlock Early Access"; "Swap the stress for scent and save up to 44%" / "Start Unwinding".
+  - Tue 13 Oct: headline "Rain outside, calm inside" / "You're first in line for tomorrow's deals" / "Get First Dibs" / roundel "FINAL HOURS FREE Diffuser with code FREEDIFF".
 
 ## Hero imagery
 - ALWAYS: the hero must feel different every day, both the copy (headline, subtext, CTA, roundel) and the imagery (scene, setting, colour palette, mood). Check the previous few emails on the Figma page before creating a new one.
@@ -21,6 +22,7 @@ Feedback from the user on daily evening emails (Figma file "Flow Templates (Copy
   - Sat 10 Oct: amber living room, gift box on wooden table
   - Sun 11 Oct: amber living room, two candles on a table with throw and book
   - Mon: blush/lilac twilight bedroom, gift box on a marble bedside table with a city view
+  - Tue 13 Oct: cool slate-blue rainy-night window seat, white headline over dark rainy glass, citrus pops
 - Avoid another warm-amber-coffee-table shot for a while.
 - ALWAYS: product card images must tie in with the hero imagery (same setting, surface, light, palette) so the email feels like one shoot. Regenerate the product shots whenever the hero scene changes.
 
@@ -28,10 +30,15 @@ Feedback from the user on daily evening emails (Figma file "Flow Templates (Copy
 - ALWAYS change the deals-section heading copy every day. It can repeat occasionally, but consecutive emails must be clearly different.
 - Ideas: "Handpicked for you...", "Reserved for our VIPs...", "Your early access picks...", "Tomorrow's deals, tonight...", "First dibs, just for you...", "Before anyone else...", "Your VIP edit...", "Shop your deals...".
 - It's live text (Cormorant Garamond Bold ~46px, centred) in the "Deals Heading (editable – change copy daily)" frame, not baked into the image.
-- Already used: "Shop your deals..." (Sat 10 Oct, Sun 11 Oct), "Reserved for our VIPs..." (Mon).
+- Already used: "Shop your deals..." (Sat 10 Oct, Sun 11 Oct), "Reserved for our VIPs..." (Mon), "Handpicked for you..." (Tue 13 Oct).
 
 ## Free gift banner
-- No brown / dark espresso backgrounds. Use light, warm, bright backgrounds (cream to soft gold worked).
+- No brown / dark espresso backgrounds. Use light, bright backgrounds.
+- Vary layout and palette day to day. Used: Mon = cream/gold, photo left + ribbon; Tue = blush-coral, copy left + circular photo right with FREE! starburst.
 
 ## Bottom banners
 - No candy-cane stripe borders or similar novelty stripe decoration.
+- Recent style: split banner (photo half + solid colour copy panel with eyebrow, Cardo headline, short body, format chips, orange CTA, white roundel on photo). Used: Mon = Crushed Candy Cane, cranberry, photo left; Tue = Snow & Sage, deep sage, photo right.
+
+## Product rows
+- Each evening email uses the NEXT day's product rows from the pricing sheet (that is the VIP early access). Now = "Use from Friday 3rd July" col, Was = the next col, % = "% Discount" col (compute if blank).
