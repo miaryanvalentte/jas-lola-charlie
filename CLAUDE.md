@@ -13,3 +13,10 @@ How:
   prompting only for scene/lighting/props and forbidding any new or changed text/labels.
 - Use a consistent scene prompt across all products in the email so the grid reads as one set.
 - Zoom in on every output and check labels/wordmarks before using it; regenerate if any text is altered.
+
+## Only show what is actually in the product
+
+Dropbox source photos can include items that are not part of the product (e.g. the
+"Best Selling Gift Box" photos show a candle, but the Original Diffuser Gift Box has no candle).
+Before using or restyling a product photo, confirm its contents against the product name/listing
+and remove anything that isn't included.
