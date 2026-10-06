@@ -29,6 +29,30 @@ Feedback from the user on daily evening emails (Figma file "Flow Templates (Copy
 - Avoid another warm-amber-coffee-table shot for a while.
 - ALWAYS: product card images must tie in with the hero imagery (same setting, surface, light, palette) so the email feels like one shoot. Regenerate the product shots whenever the hero scene changes.
 
+## Hero style guide (from past heroes in Dropbox: Email Marketing/2026 Email Marketing/Templates/Evening Hero/1x)
+Use these as inspiration and lean into the same creativity. Re-check that folder for new examples before each email.
+
+**Layout**
+- 600px wide, ~570-830px tall, curved/arched bottom edge.
+- Text block at the top, centred: Cardo/Cormorant headline (2 lines, ~44-56px), 1-2 line subtext with **bold** offer words, small orange pill CTA with arrow.
+- White circular roundel (~110px) overlapping the image, left or right side, short bold text.
+- Optional black diagonal corner ribbon top-left ("ENDS MIDNIGHT").
+- Text sits on either (a) a plain soft-toned band (beige, blush, taupe, pale grey-blue, warm brown) that blends into the photo, (b) directly over a full-bleed photo (white text on darker photos), or (c) a translucent white card over the photo.
+- Occasionally flipped: image full-bleed with headline/CTA at the bottom (overhead flat-lay styles).
+
+**Copy patterns (VIP + urgency, always explicit)**
+- Headlines: "Your VIP deals have arrived", "You're one of our VIPs...", "As a VIP, you get first pick!", "Your VIP perks won't last forever...", "Hurry, your VIP offer ends tonight", "Don't let your VIP perks pass you by", "Want exclusive sale access before anyone else?", "Last chance to refresh your home", "VIP perks just landed...", "MORE FRAGRANCE. LESS SPEND. MORE FREE" (all-caps variant).
+- Subtext states the offer plainly: "up to 50% off your favourites" + "a FREE Diffuser/Candle/gift with every order", plus timing ("hours before everyone else", "until midnight tonight").
+- CTAs: "Claim Before Midnight", "Unlock Before Midnight", "Unlock Your Deals", "Get My VIP Deals", "Shop VIP Savings", "Claim My Rewards", "Shop Before It Ends", "Click To Unlock Up To 50% Off".
+- Roundels: "FREE Diffuser Worth £18.99", "1 Day Left", "Final Hours", "Ends Tonight", "You've Unlocked 2 FREE Gifts", "FREE Gift With Every Order", "Two FREE Products".
+- Lifestyle/pun headlines are fine occasionally, but the VIP + offer must be unmistakable in the hero.
+
+**Imagery (creative, varied, positive)**
+- Often a group of products (several diffusers, or a range: diffuser + candle + mist + hand wash + gift boxes), not just one gift box.
+- Creative set-ups seen: products on stone plinths among fresh lemons and greenery; diffusers on a striped picnic blanket outdoors with oranges and daisies; reeds and bottles on wet sand with sea foam; overhead flat-lay of diffusers scattered with oranges, cardamom, cinnamon, pine cones and autumn leaves; hands holding a wicker basket of products in autumn leaves; marble bathroom counter with lemons and towels; bath tray over bubbles with eucalyptus; a single diffuser on a sunlit rock with long shadows and leaves; dressed bedroom; pumpkins and candlelit autumn table.
+- Seasonal cues are used freely (autumn leaves, pumpkins, pine, citrus for fresh scents).
+- Light and warm overall; bright natural light or golden glow. Never gloomy.
+
 ## "Shop your deals" heading
 - ALWAYS change the deals-section heading copy every day. It can repeat occasionally, but consecutive emails must be clearly different.
 - Ideas: "Handpicked for you...", "Reserved for our VIPs...", "Your early access picks...", "Tomorrow's deals, tonight...", "First dibs, just for you...", "Before anyone else...", "Your VIP edit...", "Shop your deals...".
