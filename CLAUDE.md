@@ -16,7 +16,7 @@ Feedback from the user on daily evening emails (Figma file "Flow Templates (Copy
   - Already used: "Get up to 50% off cosy favourites" / "Shop Tonight's Deals" (Sat 10 Oct), "Get up to 50% off your favourites" / "Shop Your Deals Early" (Sun 11 Oct), "As VIP, you get tomorrow's deals, tonight" / "Unlock up to 50% off" (Mon 11 Oct, user's final edit). Retired drafts, also don't reuse: "VIP early access: tomorrow's deals, up to 44% off" / "Unlock Early Access"; "Swap the stress for scent and save up to 44%" / "Start Unwinding".
 
 ## Hero imagery
-- Vary the hero image scene, setting and colour palette between emails too, not just the copy.
+- ALWAYS: the hero must feel different every day, both the copy (headline, subtext, CTA, roundel) and the imagery (scene, setting, colour palette, mood). Check the previous few emails on the Figma page before creating a new one.
 - Already used:
   - Sat 10 Oct: amber living room, gift box on wooden table
   - Sun 11 Oct: amber living room, two candles on a table with throw and book
