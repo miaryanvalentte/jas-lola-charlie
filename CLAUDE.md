@@ -28,3 +28,12 @@ Every B&W template gets the real "You May Also Like" section, not a placeholder:
 - Quickest way to add it: copy the finished `You May Also Like` frame from an existing template
   (e.g. "Evening Email 2x2 – B&W Template") rather than re-cropping the images.
 - If higher-resolution originals of these three photos turn up in Dropbox, swap them in.
+
+## "Refer a friend" footer link (permanent rule)
+
+In every email (new builds and existing ones, including anything that reuses the Zac Footer):
+
+- The "refer a friend" link's href must be exactly `https://valentte.com/refer-a-friend/`
+- No query parameters at all. Strip `email`, `firstname`, `surname`, `situation`, `locale`, `segment`,
+  `utm_source`, `utm_campaign`, `utm_medium` and anything else. Every recipient lands on the same plain page.
+- The canonical Zac Footer still carries the old personalised URL, so replace it every time the footer is pasted in.
