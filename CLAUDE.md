@@ -22,7 +22,13 @@ Feedback from the user on daily evening emails (Figma file "Flow Templates (Copy
   - Sun 11 Oct: amber living room, two candles on a table with throw and book
   - Mon: blush/lilac twilight bedroom, gift box on a marble bedside table with a city view
 - Avoid another warm-amber-coffee-table shot for a while.
-- Product card images must match the hero's scene and palette (same setting, surface, light) so the email feels like one shoot.
+- ALWAYS: product card images must tie in with the hero imagery (same setting, surface, light, palette) so the email feels like one shoot. Regenerate the product shots whenever the hero scene changes.
+
+## "Shop your deals" heading
+- ALWAYS change the deals-section heading copy every day. It can repeat occasionally, but consecutive emails must be clearly different.
+- Ideas: "Handpicked for you...", "Reserved for our VIPs...", "Your early access picks...", "Tomorrow's deals, tonight...", "First dibs, just for you...", "Before anyone else...", "Your VIP edit...", "Shop your deals...".
+- It's live text (Cormorant Garamond Bold ~46px, centred) in the "Deals Heading (editable – change copy daily)" frame, not baked into the image.
+- Already used: "Shop your deals..." (Sat 10 Oct, Sun 11 Oct), "Reserved for our VIPs..." (Mon).
 
 ## Free gift banner
 - No brown / dark espresso backgrounds. Use light, warm, bright backgrounds (cream to soft gold worked).
