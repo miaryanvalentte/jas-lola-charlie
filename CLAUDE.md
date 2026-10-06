@@ -37,7 +37,8 @@ Feedback from the user on daily evening emails (Figma file "Flow Templates (Copy
 
 ## Free gift banner
 - No brown / dark espresso backgrounds. Use light, bright backgrounds.
-- Vary layout and palette day to day. Used: Mon = cream/gold, photo left + ribbon; Tue = blush-coral, copy left + circular photo right with FREE! starburst.
+- Preferred format (user-approved, from Mon 12 Oct FREECANDLE banner): photo on the left fading into a light gradient copy panel, diagonal corner ribbon, centred eyebrow, Cardo Bold headline, dashed code ticket ("USE CODE" + code), orange CTA, small sparkles. Keep this format but vary the palette, ribbon text and copy each day.
+- Used: Mon = cream/gold, ribbon "VIP EXCLUSIVE"; Tue = blush-coral, ribbon "FINAL HOURS", "A FREE Reed Diffuser with tonight's order", CTA "Redeem Before Midnight". (A copy-left/circle-photo/starburst layout was tried Tue and replaced.)
 
 ## Bottom banners
 - No candy-cane stripe borders or similar novelty stripe decoration.
