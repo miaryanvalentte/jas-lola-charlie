@@ -22,6 +22,7 @@ Feedback from the user on daily evening emails (Figma file "Flow Templates (Copy
   - Sun 11 Oct: amber living room, two candles on a table with throw and book
   - Mon: blush/lilac twilight bedroom, gift box on a marble bedside table with a city view
 - Avoid another warm-amber-coffee-table shot for a while.
+- Product card images must match the hero's scene and palette (same setting, surface, light) so the email feels like one shoot.
 
 ## Free gift banner
 - No brown / dark espresso backgrounds. Use light, warm, bright backgrounds (cream to soft gold worked).
