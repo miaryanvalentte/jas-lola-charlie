@@ -30,7 +30,8 @@ Feedback from the user on daily evening emails (Figma file "Flow Templates (Copy
 - ALWAYS: product card images must tie in with the hero imagery (same setting, surface, light, palette) so the email feels like one shoot. Regenerate the product shots whenever the hero scene changes.
 
 ## Hero style guide (from past heroes in Dropbox: Email Marketing/2026 Email Marketing/Templates/Evening Hero/1x)
-Use these as inspiration and lean into the same creativity. Re-check that folder for new examples before each email.
+Use these as inspiration for IMAGERY STYLE and CREATIVE LAYOUTS only. Re-check that folder for new examples before each email.
+- COPY: the user prefers our own creative/lifestyle messaging (e.g. "Beat the Monday blues", "Freshly squeezed savings") over the past heroes' VIP-led headlines. Keep doing lifestyle copy (still carrying the core messages in subtext/CTA/roundel) until the user says to switch back. The "Copy patterns" section below is reference only.
 
 **Layout**
 - 600px wide, ~570-830px tall, curved/arched bottom edge.
@@ -40,7 +41,7 @@ Use these as inspiration and lean into the same creativity. Re-check that folder
 - Text sits on either (a) a plain soft-toned band (beige, blush, taupe, pale grey-blue, warm brown) that blends into the photo, (b) directly over a full-bleed photo (white text on darker photos), or (c) a translucent white card over the photo.
 - Occasionally flipped: image full-bleed with headline/CTA at the bottom (overhead flat-lay styles).
 
-**Copy patterns (VIP + urgency, always explicit)**
+**Copy patterns in past heroes (reference only, not current direction)**
 - Headlines: "Your VIP deals have arrived", "You're one of our VIPs...", "As a VIP, you get first pick!", "Your VIP perks won't last forever...", "Hurry, your VIP offer ends tonight", "Don't let your VIP perks pass you by", "Want exclusive sale access before anyone else?", "Last chance to refresh your home", "VIP perks just landed...", "MORE FRAGRANCE. LESS SPEND. MORE FREE" (all-caps variant).
 - Subtext states the offer plainly: "up to 50% off your favourites" + "a FREE Diffuser/Candle/gift with every order", plus timing ("hours before everyone else", "until midnight tonight").
 - CTAs: "Claim Before Midnight", "Unlock Before Midnight", "Unlock Your Deals", "Get My VIP Deals", "Shop VIP Savings", "Claim My Rewards", "Shop Before It Ends", "Click To Unlock Up To 50% Off".
