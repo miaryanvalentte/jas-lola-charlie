@@ -13,3 +13,18 @@ When a reference email has strip headlines about the delivery pass (e.g. "You've
 - Place them full-width (600px) in the same position and order as in the reference email.
 - Applies to every new template and to existing B&W templates in Figma
   (file `3HcXPTDNPcYm2CohEsdFjm`, page "mia").
+
+## "You May Also Like" section (permanent rule)
+
+Every B&W template gets the real "You May Also Like" section, not a placeholder:
+
+- Divider line, then heading "You May Also Like…" (Inter 22, centred).
+- Three full-width image tiles (197×200 each, 4px gaps) using the real images from the
+  reference email in Figma (file `3HcXPTDNPcYm2CohEsdFjm`, node `21418:3`, page "mia"):
+  1. Reed diffuser with rosemary → label `OFFERS  ▶`
+  2. Refill bottle with roses and reeds → label `REFILLS  ▶`
+  3. Citrus (oranges, lemon, mint) → label `SHOP BY SCENT  ▶`
+- Labels: Inter 11, #333333, centred under each tile.
+- Quickest way to add it: copy the finished `You May Also Like` frame from an existing template
+  (e.g. "Evening Email 2x2 – B&W Template") rather than re-cropping the images.
+- If higher-resolution originals of these three photos turn up in Dropbox, swap them in.
