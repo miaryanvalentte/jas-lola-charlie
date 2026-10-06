@@ -14,7 +14,7 @@ Feedback from the user on daily evening emails (Figma file "Flow Templates (Copy
 - Never reuse the same hero subtext or CTA wording across emails. Write fresh subtext and a fresh CTA every time to avoid customer fatigue.
 - Before writing, check the subtext/CTA on the most recent emails on the page and make sure the new ones are clearly different (not just a word swapped).
   - Already used: "Get up to 50% off cosy favourites" / "Shop Tonight's Deals" (Sat 10 Oct), "Get up to 50% off your favourites" / "Shop Your Deals Early" (Sun 11 Oct), "As VIP, you get tomorrow's deals, tonight" / "Unlock up to 50% off" (Mon 11 Oct, user's final edit). Retired drafts, also don't reuse: "VIP early access: tomorrow's deals, up to 44% off" / "Unlock Early Access"; "Swap the stress for scent and save up to 44%" / "Start Unwinding".
-  - Tue 13 Oct: headline "Rain outside, calm inside" / "You're first in line for tomorrow's deals" / "Get First Dibs" / roundel "FINAL HOURS FREE Diffuser with code FREEDIFF".
+  - Tue 13 Oct: headline "Here's to a brighter Tuesday" (rejected: "Rain outside, calm inside", too negative) / "You're first in line for tomorrow's deals" / "Get First Dibs" / roundel "FINAL HOURS FREE Diffuser with code FREEDIFF".
 
 ## Hero imagery
 - ALWAYS: the hero must feel different every day, both the copy (headline, subtext, CTA, roundel) and the imagery (scene, setting, colour palette, mood). Check the previous few emails on the Figma page before creating a new one.
@@ -22,7 +22,8 @@ Feedback from the user on daily evening emails (Figma file "Flow Templates (Copy
   - Sat 10 Oct: amber living room, gift box on wooden table
   - Sun 11 Oct: amber living room, two candles on a table with throw and book
   - Mon: blush/lilac twilight bedroom, gift box on a marble bedside table with a city view
-  - Tue 13 Oct: cool slate-blue rainy-night window seat, white headline over dark rainy glass, citrus pops
+  - Tue 13 Oct: bright sunlit kitchen at golden hour, white marble island, fresh citrus and flowers (replaced a rejected rainy slate-blue window seat, too negative)
+- ALWAYS keep the mood positive and uplifting: bright, optimistic, feel-good scenes and copy. No gloomy weather (rain, storms, grey skies), no dark/moody blue palettes, no negative framing in headlines.
 - Avoid another warm-amber-coffee-table shot for a while.
 - ALWAYS: product card images must tie in with the hero imagery (same setting, surface, light, palette) so the email feels like one shoot. Regenerate the product shots whenever the hero scene changes.
 
