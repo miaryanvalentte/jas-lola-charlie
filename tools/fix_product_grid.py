@@ -118,7 +118,18 @@ def fix_stack_overflow(html):
     return STACK_RULE_RE.sub(add, html)
 
 
+SHOP_BY_SCENT_RE = re.compile(
+    r'href="https?://(?:www\.)?valentte\.com/shop-by-scent/?(?=["?#])', re.I)
+ALL_SCENTS_URL = 'href="https://valentte.com/all-scents/'
+
+
+def fix_links(html):
+    """Shop by scent links must go to the All Scents page."""
+    return SHOP_BY_SCENT_RE.sub(ALL_SCENTS_URL, html)
+
+
 def fix(html):
+    html = fix_links(html)
     html = fix_stack_overflow(html)
     if MARKER in html:
         return html, 0

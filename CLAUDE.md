@@ -14,6 +14,8 @@ python3 tools/fix_product_grid.py in.html out.html
   each product name wraps to, shrinks grid titles on phones, and stops "Shop Now →" wrapping.
 - It also adds `box-sizing:border-box` to `.stack-col` rules that stack columns at 100% width,
   otherwise padded cells come out wider than the phone and the whole email pans sideways.
+- It points every "Shop by scent" link (`valentte.com/shop-by-scent/`) at
+  `https://valentte.com/all-scents/`.
 - It only touches grids of that exact shape; zig-zag layouts that stack on mobile are left alone.
   It is safe to run more than once.
 - If it prints the escaped-HTML warning, the Bloomreach visual editor has turned a block
