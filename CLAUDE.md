@@ -12,6 +12,8 @@ python3 tools/fix_product_grid.py in.html out.html
 - It rebuilds 2-column product grids (image / title / Was-Now price / Shop Now button per cell)
   into one-row-per-part tables so prices and buttons line up on mobile no matter how many lines
   each product name wraps to, shrinks grid titles on phones, and stops "Shop Now →" wrapping.
+- It also adds `box-sizing:border-box` to `.stack-col` rules that stack columns at 100% width,
+  otherwise padded cells come out wider than the phone and the whole email pans sideways.
 - It only touches grids of that exact shape; zig-zag layouts that stack on mobile are left alone.
   It is safe to run more than once.
 - If it prints the escaped-HTML warning, the Bloomreach visual editor has turned a block

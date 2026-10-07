@@ -104,7 +104,22 @@ def rebuild(match):
     return '\n'.join(out)
 
 
+STACK_RULE_RE = re.compile(r'(\.stack-col\s*\{)([^}]*display:\s*block[^}]*width:\s*100%[^}]*)\}')
+
+
+def fix_stack_overflow(html):
+    """Columns that stack on mobile get width:100% plus their own padding, which
+    pushes them wider than the phone screen (the whole email then pans sideways).
+    border-box keeps the padding inside the 100%."""
+    def add(m):
+        if 'box-sizing' in m.group(2):
+            return m.group(0)
+        return m.group(1) + m.group(2).rstrip() + ' box-sizing:border-box !important; }'
+    return STACK_RULE_RE.sub(add, html)
+
+
 def fix(html):
+    html = fix_stack_overflow(html)
     if MARKER in html:
         return html, 0
     new, n = ROW_RE.subn(rebuild, html)
