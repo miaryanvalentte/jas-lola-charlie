@@ -41,3 +41,13 @@ Per send column:
 ## 4. Winning titles sheet – https://docs.google.com/spreadsheets/d/1C8Ia61-CjHfehDDHZoB9-Xfzo6qSgctYwEmzN2crARE
 
 Columns: A `Day - dd/mm/yy AM|PM`, B `SL - P1` of the winner on clicks, C click rate (2 dp, no % sign), D open rate.
+
+## 5. Daily write-up – Notion
+
+Parent page: "Daily Campaign Email Analysis - Claude" (id `3fee99564794806886bff03d2cd79ea7`).
+One child page per day, titled `<Weekday dd Month yyyy> – Email performance`, icon 📧, newest at the top
+(after creating, `replace_content` on the parent with the `<page>` tags listed newest first – never drop a tag).
+Sections: headline callout · headline figures table (per send + total) with vs day before / same day last week
+from the daily sheet · things to know · subject-line tests (winner on click rate) · what did / didn't work
+(click share per block from `links.mjs`: `node links.mjs <htmlDir> <clickJsonDir> <outDir> <names…>`).
+Email the same summary to mia@valentte.com and ruby.h@valentte.com once an email connector is available.
