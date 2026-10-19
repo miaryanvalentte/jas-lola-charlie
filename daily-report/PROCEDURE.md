@@ -1,0 +1,43 @@
+# Daily email report – 8:10am (Europe/London)
+
+Each morning, report **yesterday's** three newsletter sends (AM 7am, PM 3pm, Evening 6pm).
+
+## 1. Data (Bloomreach / Loomi)
+
+- Project `2e25bbd8-55a8-11f0-9f79-9aae66778e25`. EQL is rate-limited: 1 query per ~3s, retry on 429.
+- Campaign name: `dd/mm/yy Newsletter`. Action names: `AM Email dd/mm/yy`, `PM Email dd/mm/yy`, `Evening Email dd/mm/yy`;
+  subject-line tests are `AM Email dd/mm/yy - Title Test A` / `- Title Test B` (on 15/10 they were `- Test A` / `- Test B`).
+- **Delivered / opens / unique clicks**: per action name. Unique clicks = `count first event campaign where .status = "clicked"`
+  (Bloomreach standard, no bot filter – this matches the team's "Winning Titles" sheet).
+- **Click maps**: use reliable clicks (`.bot has no value`), counted per xpath × url, then render with `heatmap.mjs`.
+- **Visitors** (Metrilo-style): `count first event session_start` where `.utm_campaign` = exact email name, send day only (BST).
+- **Orders / revenue**: `funnel(session_start where .utm_campaign = X followed by purchase in last 3 days within 2 hours)`,
+  purchases from send time to 23:00Z same day, sum `total_price`.
+
+## 2. Miro board – https://miro.com/app/board/uXjVEYE5ouI=/
+
+Layout (board units): day x = `-7400 + weekday * 2120` (Mon = 0); each day is 1880 wide; columns 600 wide with 40 gap.
+Week rows: w/c 12 Oct y0 = -1064, w/c 19 Oct y0 = 1507, w/c 26 Oct y0 = 4157. Images go at y0 + 600.
+Template text boxes already exist for 19–31 Oct: **update** them (stats box at y0+149, panel at y0+485) – don't create new ones.
+
+Per send column:
+- Label `Total – whole audience + tests`; stats = **totals** across whole audience + Test A + Test B
+  (open rate weighted by delivered; CTR = clicks/delivered; conv = orders/visitors; AOV = revenue/orders). SL/P1 = whole-audience version.
+- Grey panel: `Test A – OR% open · CTR% click rate: SL / P1`, same for Test B, then
+  **`Winner on clicks: <variant> (x.xx% click rate vs whole audience y.yy%)`** – highest unique click rate (clicks ÷ delivered) wins.
+- Evening: `Whole Audience` stats + "No subject line test on this send."
+- Click map: one combined image (whole + tests) 180 wide at the column's left edge, y0 + 600.
+  Images: create, then resize needs x, y, width + height in one call, then a second call with x, y only.
+- `canvas_create_from_svg` auto-shifts batches that overlap existing items – send small batches and re-position by id if shifted.
+
+## 3. Daily sheet – https://docs.google.com/spreadsheets/d/1Zj1U5HeRFIAcrgLJJiTkmshlRDWIclNkVjyZG2IVzsA
+
+- 16-column block per day; block start column (1-based) = `2 + 16 * (date − 24 Aug 2026 in days)`.
+- To add a day: `appendDimension` 16 columns if needed, `copyPaste` the previous day's block (rows 1–11) to the new block,
+  then write the header (row 1, e.g. `Monday 19th October 2026 `, trailing space) and inputs only:
+  rows 4 Delivered, 5 Unique Clicks, 7 Visitors, 8 Orders, 10 Revenue, at block offsets 0 (AM), 4 (PM), 8 (Evening).
+  Everything else is formulas. Values are totals incl. tests.
+
+## 4. Winning titles sheet – https://docs.google.com/spreadsheets/d/1C8Ia61-CjHfehDDHZoB9-Xfzo6qSgctYwEmzN2crARE
+
+Columns: A `Day - dd/mm/yy AM|PM`, B `SL - P1` of the winner on clicks, C click rate (2 dp, no % sign), D open rate.
