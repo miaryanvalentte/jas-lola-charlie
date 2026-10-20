@@ -1,4 +1,4 @@
-# Daily email report – 8:10am (Europe/London)
+# Daily email report – 5:48am (Europe/London)
 
 Each morning, report **yesterday's** three newsletter sends (AM 7am, PM 3pm, Evening 6pm).
 
@@ -10,6 +10,9 @@ Each morning, report **yesterday's** three newsletter sends (AM 7am, PM 3pm, Eve
 - **Delivered / opens / unique clicks**: per action name. Unique clicks = `count first event campaign where .status = "clicked"`
   (Bloomreach standard, no bot filter – this matches the team's "Winning Titles" sheet).
 - **Click maps**: use reliable clicks (`.bot has no value`), counted per xpath × url, then render with `heatmap.mjs`.
+- **Check for unexpected sends**: list every action that delivered yesterday (`count event campaign where .status="delivered"` grouped by action name),
+  not just yesterday's own names. A send from another day's scenario (e.g. `Evening Email 21/10/26` going out on 19/10 because a
+  planned trigger kept an old date) must be reported separately and flagged at the top of the write-up; keep it out of the day totals.
 - **Visitors** (Metrilo-style): `count first event session_start` where `.utm_campaign` = exact email name, send day only (BST).
 - **Orders / revenue**: `funnel(session_start where .utm_campaign = X followed by purchase in last 3 days within 2 hours)`,
   purchases from send time to 23:00Z same day, sum `total_price`.
@@ -32,6 +35,7 @@ Per send column:
 
 ## 3. Daily sheet – https://docs.google.com/spreadsheets/d/1Zj1U5HeRFIAcrgLJJiTkmshlRDWIclNkVjyZG2IVzsA
 
+- Tab name: `'Daily totals'` (quote it in ranges). The team's `Weekly totals` tab is theirs – don't edit it.
 - 16-column block per day; block start column (1-based) = `2 + 16 * (date − 24 Aug 2026 in days)`.
 - To add a day: `appendDimension` 16 columns if needed, `copyPaste` the previous day's block (rows 1–11) to the new block,
   then write the header (row 1, e.g. `Monday 19th October 2026 `, trailing space) and inputs only:
@@ -40,6 +44,7 @@ Per send column:
 
 ## 4. Winning titles sheet – https://docs.google.com/spreadsheets/d/1C8Ia61-CjHfehDDHZoB9-Xfzo6qSgctYwEmzN2crARE
 
+Currently view-only for the connector (writes return "Permission denied") – flag it in the summary until access is granted.
 Columns: A `Day - dd/mm/yy AM|PM`, B `SL - P1` of the winner on clicks, C click rate (2 dp, no % sign), D open rate.
 
 ## 5. Daily write-up – Notion
