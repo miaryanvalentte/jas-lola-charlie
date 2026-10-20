@@ -44,8 +44,7 @@ Per send column:
 
 ## 4. Winning titles sheet – https://docs.google.com/spreadsheets/d/1C8Ia61-CjHfehDDHZoB9-Xfzo6qSgctYwEmzN2crARE
 
-Currently view-only for the connector (writes return "Permission denied") – flag it in the summary until access is granted.
-Columns: A `Day - dd/mm/yy AM|PM`, B `SL - P1` of the winner on clicks, C click rate (2 dp, no % sign), D open rate.
+Tab `Sheet1`. Columns: A `Day - dd/mm/yy AM|PM`, B `SL - P1` of the winner on clicks, C click rate (2 dp, no % sign), D open rate.
 
 ## 5. Daily write-up – Notion
 
