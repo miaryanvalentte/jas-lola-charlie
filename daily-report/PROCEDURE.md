@@ -64,7 +64,11 @@ grey intro callout (keep the callout and every existing `<page>` tag, newest fir
 1. **Last week by send** – per-send weekly totals (delivered, open rate, clicks, CTR, visitors, orders, conv., AOV, revenue)
    vs the week before. Use the `'Daily totals'` sheet blocks (offsets 0/4/8 per day) for everything except opens; get opens from
    Bloomreach (`count first event campaign where .status="opened"` by `action_name`, grouping top 120, for the week).
-   Check the week total matches the team's `Weekly totals` tab. Add a revenue-by-day-and-send grid, best/worst sends,
+   Check the week total matches the team's `Weekly totals` tab. The **revenue by day and send** grid comes from the
+   Bloomreach dashboard "[JS] Email Performance" (69fb1e65c37a3b442ed279ce): `calculate_report` on report
+   `69e722fb45db70c39cfceb9b` with an absolute date filter covering both weeks (Mon 00:00 BST, i.e. Sun 23:00Z). Use the "1. AM",
+   "2. PM" and "3. Evening" columns, add week totals and the change vs the same day last week, and note that it uses last-email-visit
+   attribution, so its totals are higher than the sheet's. Also add best/worst sends,
    and revenue per 1,000 emails sent.
 2. **Subject-line tests** – every test from the week (winner on click rate), and what styles won or lost.
 3. **Content** – what did and didn't work, from the daily pages' click shares.
