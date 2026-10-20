@@ -55,3 +55,20 @@ Sections: headline callout · headline figures table (per send + total) with vs 
 from the daily sheet · things to know · subject-line tests (winner on click rate) · what did / didn't work
 (click share per block from `links.mjs`: `node links.mjs <htmlDir> <clickJsonDir> <outDir> <names…>`).
 Email the same summary to mia@valentte.com and ruby.h@valentte.com once an email connector is available.
+
+## 6. Weekly meeting prep – Mondays ~7am (Europe/London)
+
+New child page under the same Notion parent, titled `Weekly meeting prep – <Weekday dd Month yyyy>`, icon 🗓️, placed at the
+top. It covers the previous Mon–Sun and the week ahead, by **AM / PM / Evening**:
+1. **Last week by send** – per-send weekly totals (delivered, open rate, clicks, CTR, visitors, orders, conv., AOV, revenue)
+   vs the week before. Use the `'Daily totals'` sheet blocks (offsets 0/4/8 per day) for everything except opens; get opens from
+   Bloomreach (`count first event campaign where .status="opened"` by `action_name`, grouping top 120, for the week).
+   Check the week total matches the team's `Weekly totals` tab. Add a revenue-by-day-and-send grid, best/worst sends,
+   and revenue per 1,000 emails sent.
+2. **Subject-line tests** – every test from the week (winner on click rate), and what styles won or lost.
+3. **Content** – what did and didn't work, from the daily pages' click shares.
+4. **Issues** – duplicate / unexpected sends (two actions to the same list, another day's email sending early),
+   scenarios still in draft, high unsubscribe shares.
+5. **This week's plan** – for each day's `dd/mm/yy Newsletter` scenario: status, trigger times and subject lines / tests
+   (`search_scenarios` with designs → `python3 scenario_plan.py <saved result file>`). Add each email's status from the monday.com
+   Emails board (id 1984717728, group "Daily Campaigns"). Finish with the decisions needed.
