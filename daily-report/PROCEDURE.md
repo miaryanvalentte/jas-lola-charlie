@@ -58,8 +58,9 @@ Email the same summary to mia@valentte.com and ruby.h@valentte.com once an email
 
 ## 6. Weekly meeting prep – Mondays ~7am (Europe/London)
 
-New child page under the same Notion parent, titled `Weekly meeting prep – <Weekday dd Month yyyy>`, icon 🗓️, placed at the
-top. It covers the previous Mon–Sun and the week ahead, by **AM / PM / Evening**:
+New child page under the Notion page "Monday: Campaign Emails" (id `3ffe995647948074bdc4d975684a761e`, CRM Meetings – not
+the daily analysis page), titled `Weekly meeting prep – <Weekday dd Month yyyy>`, icon 🗓️, placed directly under the
+grey intro callout (keep the callout and every existing `<page>` tag, newest first). It covers the previous Mon–Sun and the week ahead, by **AM / PM / Evening**:
 1. **Last week by send** – per-send weekly totals (delivered, open rate, clicks, CTR, visitors, orders, conv., AOV, revenue)
    vs the week before. Use the `'Daily totals'` sheet blocks (offsets 0/4/8 per day) for everything except opens; get opens from
    Bloomreach (`count first event campaign where .status="opened"` by `action_name`, grouping top 120, for the week).
