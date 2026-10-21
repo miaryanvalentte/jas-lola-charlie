@@ -65,6 +65,18 @@ Email the same summary to mia@valentte.com and ruby.h@valentte.com once an email
 New child page under the Notion page "Monday: Campaign Emails" (id `3ffe995647948074bdc4d975684a761e`, CRM Meetings – not
 the daily analysis page), titled `Weekly meeting prep – <Weekday dd Month yyyy>`, icon 🗓️, placed directly under the
 grey intro callout (keep the callout and every existing `<page>` tag, newest first). It covers the previous Mon–Sun and the week ahead, by **AM / PM / Evening**:
+
+**Top of the page (written last; the routine prompt's wording wins on layout):**
+- Two 50/50 columns: a blue 🗒️ "Meeting agenda · <date>" callout with an "In one line" summary, and a grey "At a glance" callout with AM / PM / Evening revenue and changes, ending with the total.
+- One callout per send, AM orange, PM blue and Evening green, each with "Changes:" and "Good to know:" bullets.
+  - "Changes" includes the team's comments on the Valentte Growth Goals sheet, email campaign rows 300–303.
+  - Read them with the Google Drive `read_file_content` (file 1psCaYVSfIzDoKVA2guDLaBYFnaWhtEbV3j_Fwayj-a8, includeComments) and map each comment to its date via "Comment Anchors".
+  - Never reply to or resolve those comments.
+- "## 🔜 Upcoming planned changes" and "## 🚩 Anything else to flag" bullets.
+- A divider, then *Everything below is the full detail, for reference if needed.*
+- Plain words, rounded numbers, no tables or shorthand, and no separate "Agenda" list.
+
+**Full detail below the divider:**
 1. **Last week by send** – per-send weekly totals (delivered, open rate, clicks, CTR, visitors, orders, conv., AOV, revenue)
    vs the week before. Use the `'Daily totals'` sheet blocks (offsets 0/4/8 per day) for everything except opens; get opens from
    Bloomreach (`count first event campaign where .status="opened"` by `action_name`, grouping top 120, for the week).
