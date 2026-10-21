@@ -47,6 +47,7 @@ reference. Mia laid out the template by hand on the Wednesday page
 
 - Wednesday abandonment prep (`trig_01S8fAyqX12TYESRquZGKTwF`): updated.
 - Friday wider CRM prep (`trig_019xMTUFvT7uPpJFkrQWUf5V`): updated.
-- Weekly meeting prep – Monday (`trig_01DNg3jC9k9JhFqPDYjcpCzU`): its prompt
-  can only be changed from its own conversation, so the change was sent there.
-  It also copies the 19 Oct page, which now uses this layout.
+- Weekly meeting prep – Monday (`trig_01DNg3jC9k9JhFqPDYjcpCzU`): updated
+  from its own conversation (the only place its prompt can be changed).
+  `daily-report/PROCEDURE.md` section 6 on `claude/wonderful-meitner-72te4b`
+  was updated to match.
