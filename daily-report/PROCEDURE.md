@@ -16,6 +16,8 @@ Each morning, report **yesterday's** three newsletter sends (AM 7am, PM 3pm, Eve
 - **Visitors** (Metrilo-style): `count first event session_start` where `.utm_campaign` = exact email name, send day only (BST).
   Some visits are tagged with `+` for spaces (`AM+Email+20/10/26+-+Title+Test+A`): count both spellings, and use
   `.utm_campaign is in [...]` with both spellings in the orders/revenue funnels.
+  If an action name starts with a space (24/10/26 PM tests), the `+` spelling gets a leading `+`
+  (`+PM+Email+24/10/26+-+Title+Test+A`): check the visitors query and add those spellings too.
 - **Sanity check**: if a send's visitors are far below its clicks, check site activity by hour (`count event session_start`,
   `count event purchase` by hour vs the day before) – on 20/10 a ~7–11am gap meant almost no visits or orders were recorded.
 - **Orders / revenue**: `funnel(session_start where .utm_campaign = X followed by purchase in last 3 days within 2 hours)`,
