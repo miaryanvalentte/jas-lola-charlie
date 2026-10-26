@@ -76,7 +76,7 @@ grey intro callout (keep the callout and every existing `<page>` tag, newest fir
   - "Changes" includes the team's comments on the Valentte Growth Goals sheet, email campaign rows 300–303.
   - Read them with the Google Drive `read_file_content` (file 1psCaYVSfIzDoKVA2guDLaBYFnaWhtEbV3j_Fwayj-a8, includeComments) and map each comment to its date via "Comment Anchors".
   - Never reply to or resolve those comments.
-- "## 🔜 Upcoming planned changes" and "## 🚩 Anything else to flag" bullets.
+- "## 🎨 Content" (what worked / what didn't, short bullets with click shares) and "## 🚩 Anything else to flag" bullets. No "Upcoming planned changes" section (removed at the team's request, 26 Oct).
 - A divider, then *Everything below is the full detail, for reference if needed.*
 - Plain words, rounded numbers, no tables or shorthand, and no separate "Agenda" list.
 
