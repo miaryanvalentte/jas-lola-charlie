@@ -79,6 +79,8 @@ grey intro callout (keep the callout and every existing `<page>` tag, newest fir
 - "## 🎨 Content" (what worked / what didn't, short bullets with click shares) and "## 🚩 Anything else to flag" bullets. No "Upcoming planned changes" section (removed at the team's request, 26 Oct).
 - A divider, then *Everything below is the full detail, for reference if needed.*
 - Plain words, rounded numbers, no tables or shorthand, and no separate "Agenda" list.
+- Every statement about a number moving or content working/not working gets a short, data-backed "why" (offer, deadline, audience, outage, counting change). The manager will ask.
+- Like-for-like check: daily-sheet figures before Tue 20 Oct 2026 only counted space-tagged visits. When comparing against any week before 26 Oct, re-run that week's funnels per day/send with `.utm_campaign starts with "<AM|PM|Evening>" and .utm_campaign contains "dd/mm/yy"`, using `execution_time` = next day 05:50Z (matches the daily method exactly). 12–18 Oct like-for-like: AM £47,937.74 (1,019), PM £39,062.62 (842), Evening £20,693.72 (540); Mon 19: AM £5,983.48 (118), PM £3,697.79 (78), Evening £1,000.14 (29).
 
 **Full detail below the divider:**
 1. **Last week by send** – per-send weekly totals (delivered, open rate, clicks, CTR, visitors, orders, conv., AOV, revenue)
