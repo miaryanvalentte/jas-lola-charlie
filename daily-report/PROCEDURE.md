@@ -13,7 +13,9 @@ Each morning, report **yesterday's** three newsletter sends (AM 7am, PM 3pm, Eve
 - **Check for unexpected sends**: list every action that delivered yesterday (`count event campaign where .status="delivered"` grouped by action name),
   not just yesterday's own names. A send from another day's scenario (e.g. `Evening Email 21/10/26` going out on 19/10 because a
   planned trigger kept an old date) must be reported separately and flagged at the top of the write-up; keep it out of the day totals.
-- **Visitors** (Metrilo-style): `count first event session_start` where `.utm_campaign` = exact email name, send day only (BST).
+- **Visitors** (Metrilo-style): `count first event session_start` where `.utm_campaign` = exact email name, send day only (UK time).
+  From 25 Oct 2026 the UK is on GMT: the day runs 00:00Z–24:00Z (Sun 25 was 23:00Z–24:00Z next day) and the
+  orders/revenue funnel windows start at 07:00Z (AM), 15:00Z (PM) and 18:00Z (Evening) until 24:00Z.
   Some visits are tagged with `+` for spaces (`AM+Email+20/10/26+-+Title+Test+A`): count both spellings, and use
   `.utm_campaign is in [...]` with both spellings in the orders/revenue funnels.
   If an action name starts with a space (24/10/26 PM tests), the `+` spelling gets a leading `+`
