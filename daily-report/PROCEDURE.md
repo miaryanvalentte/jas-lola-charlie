@@ -71,7 +71,7 @@ the daily analysis page), titled `Weekly meeting prep – <Weekday dd Month yyyy
 grey intro callout (keep the callout and every existing `<page>` tag, newest first). It covers the previous Mon–Sun and the week ahead, by **AM / PM / Evening**:
 
 **Top of the page (written last; the routine prompt's wording wins on layout):**
-- Two 50/50 columns: a blue 🗒️ "Meeting agenda · <date>" callout with an "In one line" summary, and a grey "At a glance" callout with AM / PM / Evening revenue and changes, ending with the total.
+- Two 50/50 columns: a blue 🗒️ "Meeting agenda · <date>" callout with an "In one line" summary (revenue with its change vs the week before AND vs last month, from the Weekly totals tab's "vs. LM"), and a grey "At a glance" callout with AM / PM / Evening revenue and changes, ending with the total.
 - One callout per send, AM orange, PM blue and Evening green, each with "Changes:" and "Good to know:" bullets.
   - "Changes" includes the team's comments on the Valentte Growth Goals sheet, email campaign rows 300–303.
   - Read them with the Google Drive `read_file_content` (file 1psCaYVSfIzDoKVA2guDLaBYFnaWhtEbV3j_Fwayj-a8, includeComments) and map each comment to its date via "Comment Anchors".
