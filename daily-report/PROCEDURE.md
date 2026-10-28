@@ -76,7 +76,7 @@ The notes below still apply for data sources and like-for-like checks.
 
 New child page under the Notion page "Monday: Campaign Emails" (id `3ffe995647948074bdc4d975684a761e`, CRM Meetings – not
 the daily analysis page), titled `Weekly meeting prep – <Weekday dd Month yyyy>`, icon 🗓️, placed directly under the
-grey intro callout (keep the callout and every existing `<page>` tag, newest first). It covers the previous Mon–Sun and the week ahead, by **AM / PM / Evening**:
+bold underlined "Meeting Prep" heading, which sits below the grey intro callout (keep the callout, the heading and every existing `<page>` tag, newest first). It covers the previous Mon–Sun and the week ahead, by **AM / PM / Evening**:
 
 **Top of the page (written last; the routine prompt's wording wins on layout):**
 - Two 50/50 columns: a blue 🗒️ "Meeting agenda · <date>" callout with an "In one line" summary (revenue with its change vs the week before AND vs last month, from the Weekly totals tab's "vs. LM"), and a grey "At a glance" callout with AM / PM / Evening revenue and changes, ending with the total.
