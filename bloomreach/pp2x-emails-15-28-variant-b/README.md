@@ -40,6 +40,7 @@ Rebuild: `python3 -c "import emails; emails.build_all()"` from this folder.
   `{{ review_link }}` / `{{ item.url }}`, which a now-trigger test send can't populate.
 - Email 18 and 22 "free candle or diffuser over £60" boxes go to `/best-sellers/` (as requested); Bundle & Save CTAs go to `/bundle-save/`.
 - Email 16: Patchouli & Eucalyptus replaces Spiced Vanilla & Leather (as requested). Notes and formats come from product knowledge and the live scent page. The card image is a generated ingredients-only flat-lay (no product or text); the Diffuser tile uses the real `dif_pe` photo from Figma.
+- Email 26: the third trio card names Patchouli & Eucalyptus · Vanilla & Sandalwood · Jasmine & Rosewood (Spiced Vanilla & Leather removed, as requested). The Figma photo is unchanged: it shows spice props but no scent names.
 - The Zac Footer refer link uses a plain situation code (`Bloomreach-Emails-PP2x-E{n}-TestB`). The reference footer's `{{ action['name'] }}` (spaces, brackets) stopped Mention Me's widget loading, so the page came up blank.
 - Mobile: images use `max-width:100%` inline and side-by-side cards carry their background on the `<td>`. Both hold in Outlook for iOS, which ignored the descendant CSS rule.
 - The Figma Global Header/Footer instances are replaced by the Aiden Header and Zac Footer (see above).
