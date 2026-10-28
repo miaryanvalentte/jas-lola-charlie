@@ -107,3 +107,14 @@ grey intro callout (keep the callout and every existing `<page>` tag, newest fir
 5. **This week's plan** – for each day's `dd/mm/yy Newsletter` scenario: status, trigger times and subject lines / tests
    (`search_scenarios` with designs → `python3 scenario_plan.py <saved result file>`). Add each email's status from the monday.com
    Emails board (id 1984717728, group "Daily Campaigns"). Finish with the decisions needed.
+
+## Miro "what worked / didn't" notes (from 28 Oct 2026)
+
+Under each click map, add 3–5 sticky notes per email next to the block they describe: light green = worked,
+light pink = didn't work. Text: "<b>Worked – NN% of clicks</b><br>short why" (one sentence, plain words).
+How: `node bbox.mjs <day>/main <day>/hm <day>/out AM_... PM_... Evening_...` writes `<name>.boxes.json`
+(block positions in the 640px-wide render); write a notes JSON like `tools/notes_example.json`
+(day, send, a text snippet to match the block, kind, why), set the day's column x and image top y in
+`notes.py` (DAY dict), then `python3 notes.py notes.json > notes.svg` and send it with canvas_update_from_svg.
+Notes sit 50px right of the image, stacked so they don't overlap, each with a short divider line to its block.
+Copies of all scripts (prep.py, heatmap.mjs, links.mjs, bbox.mjs, notes.py) are in daily-report/tools/.
