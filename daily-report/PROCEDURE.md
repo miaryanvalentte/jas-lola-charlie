@@ -66,6 +66,14 @@ Email the same summary to mia@valentte.com and ruby.h@valentte.com once an email
 
 ## 6. Weekly meeting prep – Mondays ~7am (Europe/London)
 
+**From 2 Nov 2026 the routine prompt (trig_01DNg3jC9k9JhFqPDYjcpCzU) defines the layout and wins over this section:**
+title is just the date ("2nd November 2026"); plain language modelled on the Wednesday page "28th October 2026"
+(406e9956479481bbb042f6ae6fb42fea); "The headline" + 👍/👎 bullets; send boxes with "What we changed / What happened /
+Subject-line test / Still a problem"; Content and Flags sections; optional "🔍 … explained"; all detail inside a
+`<toggle heading="h2">Full analysis` block (no divider); never an "Upcoming planned changes" section.
+The notes below still apply for data sources and like-for-like checks.
+
+
 New child page under the Notion page "Monday: Campaign Emails" (id `3ffe995647948074bdc4d975684a761e`, CRM Meetings – not
 the daily analysis page), titled `Weekly meeting prep – <Weekday dd Month yyyy>`, icon 🗓️, placed directly under the
 grey intro callout (keep the callout and every existing `<page>` tag, newest first). It covers the previous Mon–Sun and the week ahead, by **AM / PM / Evening**:
