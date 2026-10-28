@@ -29,7 +29,7 @@ def _a(inner, link, color='inherit'):
     return '<a href="%s" target="_blank" style="display:block;text-decoration:none;color:%s;">%s</a>' % (link, color, inner)
 
 
-def T(text, fam, size, color, weight=400, lh=1.2, align='center', ls=None, upper=False, italic=False, link=None, nowrap=False):
+def T(text, fam, size, color, weight=400, lh=1.2, align='center', ls=None, upper=False, italic=False, link=None, nowrap=False, cls=None):
     """Text block. lh is a multiplier (Figma % / 100)."""
     f = CG if fam == 'CG' else MU
     st = ["margin:0", "font-family:%s" % f, "font-size:%spx" % size, "color:%s" % color, "font-weight:%d" % weight,
@@ -38,7 +38,7 @@ def T(text, fam, size, color, weight=400, lh=1.2, align='center', ls=None, upper
     if ls: st.append("letter-spacing:%sem" % ls)
     if upper: st.append("text-transform:uppercase")
     if nowrap: st.append("white-space:nowrap")
-    div = '<div style="%s;">%s</div>' % (';'.join(st), esc(text))
+    div = '<div%s style="%s;">%s</div>' % (' class="%s"' % cls if cls else '', ';'.join(st), esc(text))
     return _a(div, link)
 
 
@@ -70,6 +70,23 @@ def box(inner, bg=None, pad=(0, 0, 0, 0), r=0, border=None, valign='top', align=
             '<tr><td%s align="%s" valign="%s" style="%s;">%s</td></tr></table>' % (bgattr, align, valign, ';'.join(st), inner))
 
 
+class Cell:
+    """Card content for H(): bg/padding/radius/border go on the column <td> itself, so every card in a row
+    stretches to the tallest one (a nested box() only grows to fit its own content)."""
+    def __init__(self, inner, bg=None, pad=(0, 0, 0, 0), r=0, border=None, valign=None, align='left'):
+        self.inner, self.bg, self.pad, self.r, self.border, self.valign, self.align = inner, bg, pad, r, border, valign, align
+
+    def td_attrs(self):
+        st = "padding:%dpx %dpx %dpx %dpx;" % self.pad
+        attrs = ' align="%s"' % self.align
+        if self.bg:
+            st += "background-color:%s;" % self.bg
+            attrs += ' bgcolor="%s"' % self.bg
+        if self.r: st += "border-radius:%dpx;" % self.r
+        if self.border: st += "border:%s;" % self.border
+        return attrs, st
+
+
 def H(cols, total, g=0, valign='top', bg=None, r=0, fixed=False, stack=False, rtl=False):
     """cols: list of (width, html); ('rule', (colour, height)) inserts a 1px vertical divider.
     fixed=True renders a centred table exactly `total` px wide instead of 100%.
@@ -84,7 +101,13 @@ def H(cols, total, g=0, valign='top', bg=None, r=0, fixed=False, stack=False, rt
             col, h = inner
             tds.append('<td width="1" valign="middle" style="width:1px;"><div style="width:1px;height:%dpx;background-color:%s;font-size:1px;line-height:1px;">&nbsp;</div></td>' % (h, col))
             continue
-        tds.append('<td width="%d" class="%s" valign="%s"%s style="width:%.3f%%;">%s</td>' % (w, colcls, valign, ' dir="ltr"' if rtl else '', w * 100.0 / total, inner))
+        attrs, extra, va = '', '', valign
+        if isinstance(inner, Cell):
+            attrs, extra = inner.td_attrs()
+            va = inner.valign or valign
+            inner = inner.inner
+        tds.append('<td width="%d" class="%s" valign="%s"%s%s style="width:%.3f%%;%s">%s</td>'
+                   % (w, colcls, va, ' dir="ltr"' if rtl else '', attrs, w * 100.0 / total, extra, inner))
     st = "border-collapse:separate;"
     bgattr = ' dir="rtl"' if rtl else ''
     if bg:
@@ -102,8 +125,17 @@ def img(key, x, y, w, h, alt, link=None, fmt='jpg', disp_w=None):
     CROPS.append((EMAIL, key, x, y, w, h, fmt))
     src = URLS.get('%s_%s' % (EMAIL, key), 'PENDING:%s_%s' % (EMAIL, key))
     dw = disp_w or w
-    tag = ('<img src="%s" width="%d" alt="%s" class="vb-img" style="display:block;width:100%%;max-width:%dpx;height:auto;border:0;outline:none;">'
-           % (src, dw, _html.escape(alt), dw))
+    # max-width:100% (not Npx) so the image fills its cell when columns stack on phones,
+    # even in clients that ignore the <style> block (e.g. Outlook for iOS)
+    tag = ('<img src="%s" width="%d" alt="%s" class="vb-img" style="display:block;width:100%%;max-width:100%%;height:auto;border:0;outline:none;">'
+           % (src, dw, _html.escape(alt)))
+    return _a(tag, link)
+
+
+def hosted(key, w, alt, link=None):
+    """An image that was prepared outside the Figma crop step (already in urls.json)."""
+    tag = ('<img src="%s" width="%d" alt="%s" class="vb-img" style="display:block;width:100%%;max-width:100%%;height:auto;border:0;outline:none;">'
+           % (URLS['%s_%s' % (EMAIL, key)], w, _html.escape(alt)))
     return _a(tag, link)
 
 
@@ -161,7 +193,7 @@ HEAD = ('''{%- set fn = (customer.first_name or '') | trim | capitalize -%}
 <style>*{box-sizing:border-box}body{margin:0;padding:0}a[x-apple-data-detectors]{color:inherit!important;text-decoration:inherit!important}#MessageViewBody a{color:inherit;text-decoration:none}
 .vb-wrap{width:600px}
 @media (max-width:620px){.vb-wrap{width:100%!important}.vb-pad{padding-left:20px!important;padding-right:20px!important}.vb-img{width:100%!important;height:auto!important}
-.vb-stack{display:block!important;width:100%!important;max-width:100%!important}.vb-stack .vb-img{max-width:100%!important}.vb-stackgap{display:block!important;width:100%!important;height:14px!important}}
+.vb-stack{display:block!important;width:100%!important;max-width:100%!important}.vb-mcenter{text-align:center!important}.vb-stackgap{display:block!important;width:100%!important;height:14px!important}}
 </style></head>
 <body style="margin:0;padding:0;-webkit-text-size-adjust:none;text-size-adjust:none;background-color:#f7f7f7">''')
 
@@ -179,8 +211,10 @@ def also_like():
     return section(V([rule, T('You may also like', 'CG', 38, '#212121', lh=1.5, link=SITE + '/best-sellers/')], 10), pad=(20, 30, 5, 30)) + section(tiles)
 
 
-def zac_footer():
-    zac = open(os.path.join(SHELL, 'zac-footer.html')).read().strip()
+def zac_footer(n):
+    # Mention Me only loads its referral widget for a plain situation code: the reference footer's
+    # {{ action['name'] }} (spaces, brackets) gave a blank refer-a-friend page.
+    zac = open(os.path.join(SHELL, 'zac-footer.html')).read().strip().replace('SITUATION', 'Bloomreach-Emails-PP2x-E%d-TestB' % n)
     return ('<table class="row vb" align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation"><tbody><tr><td align="center">'
             '<table class="vb-wrap" align="center" width="600" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:600px;max-width:600px;background-color:#f1ece4;">'
             + zac + '</table></td></tr></tbody></table>')
@@ -190,7 +224,7 @@ def wrap(body, preheader, n):
     pre = ('<div style="display:none;font-size:1px;color:#ffffff;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;mso-hide:all;">%s'
            "{%% for i in range(40) %%}&#847;&zwnj;&nbsp;{%% endfor %%}</div>" % _html.escape(preheader, quote=False))
     h = (HEAD + pre + '<table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#f7f7f7;"><tbody><tr><td>'
-         + header() + body + also_like() + zac_footer() + '</td></tr></tbody></table></body></html>')
+         + header() + body + also_like() + zac_footer(n) + '</td></tr></tbody></table></body></html>')
     h = h.replace(CG, "Cormorant Garamond,Georgia,Times New Roman,serif")
     # single-quote attributes and drop newlines so the blob needs almost no JSON escaping in the node payload
     h = re.sub(r'(\s[\w:-]+)="([^"\']*)"', lambda m: "%s='%s'" % (m.group(1), m.group(2)), h)

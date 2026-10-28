@@ -1,6 +1,6 @@
 """Email 15-28 Variant B, transcribed section by section from Figma page 'Mia - Automations'."""
 import lib
-from lib import T, V, H, box, img, icon, cta, num, section, hero, gap, refer, SITE
+from lib import T, V, H, Cell, box, hosted, img, icon, cta, num, section, hero, gap, refer, SITE
 
 U = {
     'best': SITE + '/best-sellers/', 'bundle': SITE + '/bundle-save/', 'gifts': SITE + '/all-gifts/',
@@ -11,6 +11,7 @@ U = {
     'lr': SITE + '/shop-by-scent/lemongrass-and-rosemary/', 'wnl': SITE + '/shop-by-scent/white-neroli-and-lemon/',
     'lav': SITE + '/shop-by-scent/pure-lavender/', 'jr': SITE + '/shop-by-scent/jasmine-and-rosewood/',
     'vs': SITE + '/shop-by-scent/vanilla-sandalwood/', 'svl': SITE + '/shop-by-scent/spiced-vanilla-leather/',
+    'pe': SITE + '/shop-by-scent/patchouli-and-eucalyptus/',
 }
 
 INK, BODY, TAUPE = '#212121', '#3a3633', '#8a7560'
@@ -57,7 +58,7 @@ def e15():
                    notes_row('Top', notes[0], 114, link), notes_row('Heart', notes[1], 114, link), notes_row('Base', notes[2], 114, link),
                    T(quote, 'MU', 11.5, '#6b625b', lh=1.4, link=link),
                    cta(label, link, 13, 12, 16)], 10)
-        return box(V([img(key, x, 542, 270, 180, name + ' reed diffuser', link), box(inner, pad=(6, 18, 0, 18))], 10), bg, (0, 0, 22, 0), 6)
+        return Cell(V([img(key, x, 542, 270, 180, name + ' reed diffuser', link), box(inner, pad=(6, 18, 0, 18))], 10), bg, (0, 0, 22, 0), 6)
     return ''.join([
         hero(106, 400, 'Our two longest-running best sellers: Team Lemongrass or Team Neroli?', U['best']),
         section(H([(270, card('#eef1e2', 'sc_lr', 24, 'Lemongrass & Rosemary', ('Lemongrass', 'Rosemary', 'Garden Mint'),
@@ -80,26 +81,28 @@ def e15():
 
 @email(16, 'Autumn favourites: 4 scents for shorter days 🍂', 'Spice, vanilla, florals and woods. Find your autumn favourite.')
 def e16():
-    def card(key, x, y, eb, name, notes, formats, link):
+    def card(key, x, y, eb, name, notes, formats, link, pic=None):
         inner = V([T(eb, 'MU', 10, '#a0623a', 700, 1.6, 'left', ls=0.18, upper=True, link=link),
                    T(name, 'CG', 21, INK, 600, 1.08, 'left', link=link),
                    T(notes, 'MU', 12.5, BODY, lh=1.45, align='left', link=link),
                    T(formats, 'MU', 11.5, TAUPE, 600, 1.45, 'left', link=link)], 4)
-        return box(img(key, x, y, 263, 170, name, link) + box(inner, pad=(14, 16, 18, 16)), '#f7f1ea', r=6)
+        return Cell((pic or img(key, x, y, 263, 170, name, link)) + box(inner, pad=(14, 16, 18, 16)), '#f7f1ea', r=6)
 
-    def fmt(key, x, label, link):
-        return V([img(key, x, 1423, 128, 120, label, link),
+    def fmt(key, x, label, link, pic=None):
+        return V([pic or img(key, x, 1423, 128, 120, label, link),
                   T(label, 'MU', 10.5, '#e7c89a', 700, 1.6, ls=0.14, upper=True, link=link)], 6)
     return ''.join([
         hero(106, 420, 'Autumn favourites: four scents for shorter days', U['best']),
         section(para('As the evenings draw in, these are the scents we’re reaching for. Each one comes in more than one format, so you can scent the whole house for the season.', U['best']), pad=(40, 60, 28, 60)),
-        section(V([H([(263, card('sc_svl', 30, 672, 'Spicy', 'Spiced Vanilla & Leather', 'Vanilla · Cardamom · Leather', 'Diffuser · Candle · Fragrance Oil', U['svl'])),
+        # Patchouli & Eucalyptus replaces Spiced Vanilla & Leather (requested after the Figma build); notes/formats from product knowledge + live scent page
+        section(V([H([(263, card('sc_pe', 0, 0, 'Woody · Fresh', 'Patchouli & Eucalyptus', 'Eucalyptus · Patchouli · Cedarwood', 'Diffuser · Candle · Room Mist · Fragrance Oil', U['pe'],
+                                 pic=hosted('sc_pe', 263, 'Patchouli & Eucalyptus', U['pe']))),
                       (263, card('sc_vs', 307, 672, 'Woody', 'Vanilla & Sandalwood', 'Vanilla · Tonka · Sandalwood', 'Diffuser · Candle · Fragrance Oil', U['vs']))], 540, 14, stack=True),
                    H([(263, card('sc_lav', 30, 997, 'Floral', 'Pure Lavender', 'Lavender · Herbal · Powdery', 'Diffuser · Candle · Room Mist · Wax Melts', U['lav'])),
                       (263, card('sc_jr', 307, 997, 'Floral · Woody', 'Jasmine & Rosewood', 'Rosewood · Jasmine · Cedarwood', 'Diffuser · Fragrance Oil', U['jr']))], 540, 14, stack=True)], 14),
                 pad=(0, 30, 36, 30)),
         section(V([T('Start with a favourite', 'CG', 26, '#f4ede3', lh=1.12, italic=True, link=U['best']),
-                   H([(128, fmt('dif_svl', 30, 'Diffuser', U['diff'])), (127, fmt('can_vs', 168, 'Candle', U['cand'])),
+                   H([(128, fmt('dif_pe', 30, 'Diffuser', U['diff'], pic=hosted('dif_pe', 128, 'Diffuser', U['diff']))), (127, fmt('can_vs', 168, 'Candle', U['cand'])),
                       (128, fmt('e16_mist', 305, 'Room Mist', U['mist'])), (127, fmt('e16_wash', 443, 'Hand Wash', U['wash']))], 540, 10),
                    gap(8) + cta('Shop Best Sellers', U['best'])], 16), bg='#6e4e3a', pad=(34, 30, 40, 30)),
     ])
@@ -144,8 +147,8 @@ def e18():
         return V([lib.center(icon(key, x, 1477, 24)), T(label, 'MU', 12.5, INK, 600, 1.6, link=U['gifts'])], 6)
     return ''.join([
         hero(106, 400, 'For them, and for you: a gift for them, a gift for you', U['gifts']),
-        section(V([eyebrow('Spend over £60', '#c9a46a', U['free']), T('Get a free candle or diffuser', 'CG', 40, '#f4ede3', lh=1.05, link=U['free']),
-                   T('See website for full terms.', 'MU', 11.5, '#bdb3a8', lh=1.6, link=U['free'])], 6), bg='#212121', pad=(30, 40, 32, 40)),
+        section(V([eyebrow('Spend over £60', '#c9a46a', U['best']), T('Get a free candle or diffuser', 'CG', 40, '#f4ede3', lh=1.05, link=U['best']),
+                   T('See website for full terms.', 'MU', 11.5, '#bdb3a8', lh=1.6, link=U['best'])], 6), bg='#212121', pad=(30, 40, 32, 40)),
         section(para('Hi [First name], with the gifting season coming up, it’s a lovely time to tick a few names off your list, and treat yourself while you’re at it.', U['gifts']), pad=(36, 60, 24, 60)),
         section(V([T('Gifts our customers love', 'CG', 34, INK, lh=1.08, link=U['gifts']),
                    H([(263, prod('e17_bsgb', 30, 855, 'Best Selling Gift Box', 'Best Selling Gift Box', SITE + '/gift-boxes/best-selling-gift-box/')),
@@ -188,7 +191,7 @@ def e20():
     L = U['reviews']
 
     def prompt(t):
-        return box(T(t, 'CG', 18, INK, 600, 1.15, link=L), '#f4ede3', (18, 12, 18, 12), 6)
+        return Cell(T(t, 'CG', 18, INK, 600, 1.15, link=L), '#f4ede3', (18, 12, 18, 12), 6, valign='middle')
     return ''.join([
         hero(106, 400, 'Your words matter: help someone find their scent', L),
         section(para('Hi [First name], so many of our customers find their next favourite by reading what people like you have to say. If you have a moment, we’d love you to share yours.', L), pad=(40, 60, 28, 60)),
@@ -208,7 +211,7 @@ def e21():
     L = U['refill']
 
     def step(d, title, body):
-        return box(V([num(d, '#4e5b45'), T(title, 'CG', 19, INK, 600, 1.12, link=L), T(body, 'MU', 13, BODY, lh=1.5, link=L)], 8), '#f7f5f2', (20, 12, 20, 12), 6)
+        return Cell(V([num(d, '#4e5b45'), T(title, 'CG', 19, INK, 600, 1.12, link=L), T(body, 'MU', 13, BODY, lh=1.5, link=L)], 8), '#f7f5f2', (20, 12, 20, 12), 6)
 
     def prod(key, x, y, name, link):
         return V([img(key, x, y, 264, 200, name + ' 100ml Diffuser Refill', link), T(name, 'CG', 19, INK, 600, 1.1, link=link),
@@ -251,7 +254,7 @@ def e22():
         hero(106, 400, 'Your perks: three ways to get more from your next order', U['bundle']),
         section(para('As one of our regulars, here’s everything you can use on your next order, all in one place.', U['bundle']), pad=(36, 60, 24, 60)),
         section(V([perk('#c9d3bc', 'dif_bundle', 622, '01', TAUPE, 'Bundle & Save', INK, 'Choose 3, 6 or 10 diffusers, mix your favourite scents, and the savings take care of themselves.', 'Start Building', U['bundle']),
-                   perk('#212121', 'can_wnl', 866, '02', '#c9a46a', 'A free gift over £60', '#f4ede3', 'Spend over £60 and get a free candle or diffuser.', 'Shop Now', U['free']),
+                   perk('#212121', 'can_wnl', 866, '02', '#c9a46a', 'A free gift over £60', '#f4ede3', 'Spend over £60 and get a free candle or diffuser.', 'Shop Now', U['best']),
                    perk('#eadfd1', 'gift_bsgb_lr', 1110, '03', TAUPE, 'Refer a friend', INK, 'They get 15% off their first order, and you get 15% off too.', 'Refer A Friend', R),
                    T('See website for full terms on each offer.', 'MU', 11.5, '#8a817a', lh=1.6)], 14), pad=(4, 30, 36, 30)),
     ])
@@ -262,10 +265,10 @@ def e23():
     L = U['diff']
 
     def stat(big, small):
-        return V([T(big, 'CG', 34, '#f4ede3', 600, 1.0, link=L), T(small, 'MU', 12, '#c9bbaa', lh=1.4, link=L)], 4)
+        return V([T(big, 'CG', 30, '#f4ede3', 600, 1.1, link=L, nowrap=True), T(small, 'MU', 12, '#c9bbaa', lh=1.4, link=L)], 4)
 
     def feat(key, x, y, title, body):
-        return box(V([lib.center(icon(key, x, y, 26)), T(title, 'CG', 21, INK, 600, 1.12, link=L), T(body, 'MU', 13, BODY, lh=1.5, link=L)], 8),
+        return Cell(V([lib.center(icon(key, x, y, 26)), T(title, 'CG', 21, INK, 600, 1.12, link=L), T(body, 'MU', 13, BODY, lh=1.5, link=L)], 8),
                    '#f7f5f2', (22, 18, 22, 18), 6)
     side = V([T('Ready to scent another room?', 'CG', 30, INK, lh=1.08, align='left', link=U['bundle']),
               T('Choose 3, 6 or 10 diffusers with Bundle & Save, and mix your favourite scents.', 'MU', 14, BODY, lh=1.65, align='left', link=U['bundle']),
@@ -273,7 +276,7 @@ def e23():
     return ''.join([
         hero(106, 420, 'Everyone who visits asks what it is. Over 7 million diffusers, and counting', L),
         section(H([(181, stat('350,000+', 'five-star reviews')), (181, stat('7 million', 'diffusers sold')),
-                   (182, stat('18 seconds', 'that’s how often someone chooses Valentte'))], 560, 8), bg='#212121', pad=(30, 20, 30, 20)),
+                   (182, stat('18 seconds', 'that’s how often someone chooses Valentte'))], 560, 8, stack=True), bg='#212121', pad=(30, 20, 30, 20)),
         section(V([eyebrow('The UK’s most-rated diffuser', link=L), T('What makes it work', 'CG', 36, INK, lh=1.08, link=L),
                    H([(258, feat('spark', 152, 813, 'Fibre reeds', 'They absorb oil more efficiently than traditional rattan reeds, so you need fewer of them.')),
                       (258, feat('heart', 422, 813, 'Works 24/7', 'No plug, no batteries, no effort.'))], 528, 12),
@@ -368,7 +371,8 @@ def e27():
 
     def tier(bg, n, title, desc, label, mid_w, cta_w):
         row = H([(56, T(n, 'CG', 60, '#b8892b', 600, 0.9, link=L)),
-                 (mid_w, V([T(title, 'CG', 24, INK, 600, 1.12, 'left', link=L), T(desc, 'MU', 13.5, INK if n == '10' else BODY, lh=1.5, align='left', link=L)], 3)),
+                 (mid_w, V([T(title, 'CG', 24, INK, 600, 1.12, 'left', link=L, cls='vb-mcenter'),
+                            T(desc, 'MU', 13.5, INK if n == '10' else BODY, lh=1.5, align='left', link=L, cls='vb-mcenter')], 3)),
                  (cta_w, cta(label, L, 12.5, 10, 16))], 492, 20, valign='middle', stack=True)
         return box(row, bg, (20, 24, 20, 24), 6)
     return ''.join([
@@ -389,7 +393,7 @@ def e28():
     R = refer(28)
 
     def pill(t):
-        return box(T(t, 'MU', 12.5, INK, 600, 1.6, link=R), '#f4ede3', (12, 6, 12, 6), 20)
+        return Cell(T(t, 'MU', 12.5, INK, 600, 1.6, link=R), '#f4ede3', (12, 6, 12, 6), 20, valign='middle')
     return ''.join([
         hero(106, 400, 'Refer a friend: a little gift, from you', R),
         section(V([H([(392, img('gift_tag', 104, 550, 392, 251, 'To: someone lovely. 15% off their first order. From: you', R))], 392, fixed=True),
