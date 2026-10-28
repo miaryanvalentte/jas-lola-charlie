@@ -39,4 +39,4 @@ Rebuild: `python3 -c "import emails; emails.build_all()"` from this folder.
 - Email 20's "Write My Review" goes to `/about-us/customer-reviews/`. The live review flow uses event-bound
   `{{ review_link }}` / `{{ item.url }}`, which a now-trigger test send can't populate.
 - Email 18/22 free-gift links go to `/free-gifts/`; Bundle & Save CTAs go to `/bundle-save/`.
-- The Figma Global Header/Footer instances are replaced by the live Bloomreach header/footer, as in Emails 8–14.
+- The Figma Global Header/Footer instances are replaced by the Aiden Header and Zac Footer (see above).
