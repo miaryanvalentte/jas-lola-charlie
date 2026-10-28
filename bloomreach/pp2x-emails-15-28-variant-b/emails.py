@@ -79,7 +79,7 @@ def e15():
     ])
 
 
-@email(16, 'Autumn favourites: 4 scents for shorter days 🍂', 'Spice, vanilla, florals and woods. Find your autumn favourite.')
+@email(16, 'Autumn favourites: 4 scents for shorter days 🍂', 'Woods, vanilla and florals. Find your autumn favourite.')
 def e16():
     def card(key, x, y, eb, name, notes, formats, link, pic=None):
         inner = V([T(eb, 'MU', 10, '#a0623a', 700, 1.6, 'left', ls=0.18, upper=True, link=link),
@@ -357,7 +357,7 @@ def e26():
         section(para('Bundle & Save starts at three, so we’ve paired three scents that work beautifully together. Choose a trio, and the savings take care of themselves.', L), pad=(40, 60, 24, 60)),
         section(V([trio('#fbf0e2', 'e26_t1b', 674, 'Energising mornings', 'Lemongrass & Rosemary · Wild Mint & Sicilian Lemon · White Neroli & Lemon', 'Sparkling citrus for kitchens, hallways and bathrooms.'),
                    trio('#efedf4', 'e26_t2', 1162, 'Bright days, calm evenings', 'White Neroli & Lemon · Pure Lavender · Lemongrass & Rosemary', 'Radiant citrus by day, soft lavender for winding down.'),
-                   trio('#f3e9e0', 'e26_t3b', 1633, 'Cosy nights in', 'Spiced Vanilla & Leather · Vanilla & Sandalwood · Jasmine & Rosewood', 'Warm spice and soft florals for living rooms and snugs.')], 16),
+                   trio('#f3e9e0', 'e26_t3b', 1633, 'Cosy nights in', 'Patchouli & Eucalyptus · Vanilla & Sandalwood · Jasmine & Rosewood', 'Warm woods and soft florals for living rooms and snugs.')], 16),
                 pad=(4, 30, 30, 30)),
         section(V([T('How Bundle & Save works', 'CG', 28, INK, lh=1.12, italic=True, link=L),
                    H([(169, how('1', 'Choose 3, 6 or 10\ndiffusers')), (169, how('2', 'Mix your favourite\nscents')), (170, how('3', 'The savings take care\nof themselves'))], 528, 10),
