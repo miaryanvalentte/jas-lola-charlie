@@ -13,14 +13,24 @@ Coded HTML versions of the Figma frames **Email 15 · Variant B** to **Email 28 
 
 ## How the HTML is built
 
-- `shell/` holds the standard Valentte header/nav and footer, taken unchanged from the Email 8–14 Test B nodes.
-  Only the preheader and the refer-a-friend `situation=Bloomreach-Emails-PP2x-E{n}-TestB` code change per email.
+- Header: the approved **Aiden Header** logo (Figma frame `22576:10`, exported 2x and hosted on Higgsfield),
+  linked to the homepage, plus the live Offers / Home Fragrance / Best Sellers nav.
+- Footer: "You may also like" tiles, then the **Zac Footer** from `shell/zac-footer.html`.
+  The only change from the reference copy is null-safe, URL-encoded personalisation in the refer-a-friend link,
+  e.g. `{{ (customer.first_name or '') | urlencode }}`. Without it, a customer with a null name gets `firstname=None`.
 - `emails.py` transcribes each Figma frame section by section using the helpers in `lib.py`
-  (live text in Cormorant Garamond / Mulish, orange CTAs, 2x images).
-- Hero banners (photo + scrim + overlay copy), product photos, icons and the Email 28 gift tag
-  were cropped from 2x Figma exports and hosted on Higgsfield; `urls.json` maps each crop to its URL.
+  (live text in Cormorant Garamond / Mulish, orange CTAs, 2x images). Wide two-column rows stack on phones.
+- Hero banners (photo, scrim and overlay copy), product photos, icons and the Email 28 gift tag
+  were cropped from 2x Figma exports and hosted on Higgsfield. `urls.json` maps each crop to its URL.
 - Subject lines and preview text come from each email's "Label B" card in Figma.
-- `html/` is the exact HTML stored in each scenario node (verified byte-for-byte after upload).
+- `html/` holds the exact HTML stored in each scenario node, verified byte-for-byte after upload.
+
+## Checks run before upload
+
+- Every visible Figma text string (294) appears verbatim in the HTML.
+- Jinja2 render with a normal, a null and a missing first name gives "Hi Mia," / "Hi there," and no `None` anywhere.
+- Chromium renders at 640px and 375px show no horizontal overflow and no broken images.
+- All 37 distinct web links open with a 200 and land on the intended page.
 
 Rebuild: `python3 -c "import emails; emails.build_all()"` from this folder.
 

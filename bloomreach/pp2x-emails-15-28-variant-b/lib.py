@@ -1,4 +1,4 @@
-"""Helpers that render Figma 'Variant B' sections as email-safe HTML (vb-* style, matching Emails 8-14 Test B)."""
+"""Helpers that render Figma 'Variant B' sections as email-safe HTML, wrapped in the Aiden Header and Zac Footer."""
 import html as _html, json, os, re
 
 S = os.path.dirname(os.path.abspath(__file__))
@@ -13,8 +13,8 @@ EMAIL = None
 
 
 def refer(n):
-    return ("https://www.valentte.com/refer-a-friend?email={{ customer.email }}&firstname={{ customer.first_name }}"
-            "&surname={{ customer.last_name }}&situation=Bloomreach-Emails-PP2x-E%d-TestB&locale=en_GB&segment=loyalty" % n)
+    return ("https://www.valentte.com/refer-a-friend?email={{ (customer.email or '') | urlencode }}&firstname={{ (customer.first_name or '') | urlencode }}"
+            "&surname={{ (customer.last_name or '') | urlencode }}&situation=Bloomreach-Emails-PP2x-E%d-TestB&locale=en_GB&segment=loyalty" % n).replace('&', '&amp;')
 
 
 def esc(s):
@@ -70,26 +70,29 @@ def box(inner, bg=None, pad=(0, 0, 0, 0), r=0, border=None, valign='top', align=
             '<tr><td%s align="%s" valign="%s" style="%s;">%s</td></tr></table>' % (bgattr, align, valign, ';'.join(st), inner))
 
 
-def H(cols, total, g=0, valign='top', bg=None, r=0, fixed=False):
+def H(cols, total, g=0, valign='top', bg=None, r=0, fixed=False, stack=False, rtl=False):
     """cols: list of (width, html); ('rule', (colour, height)) inserts a 1px vertical divider.
-    fixed=True renders a centred table exactly `total` px wide instead of 100%."""
+    fixed=True renders a centred table exactly `total` px wide instead of 100%.
+    stack=True lets the columns stack full-width on phones (max-width 620px).
+    rtl=True shows the columns right-to-left on desktop while keeping DOM order for the mobile stack."""
+    colcls, gapcls = ('vb-col vb-stack', 'vb-gap vb-stackgap') if stack else ('vb-col', 'vb-gap')
     tds = []
     for i, (w, inner) in enumerate(cols):
         if i and g:
-            tds.append('<td width="%d" class="vb-gap" style="width:%.3f%%;font-size:1px;line-height:1px;">&nbsp;</td>' % (g, g * 100.0 / total))
+            tds.append('<td width="%d" class="%s" style="width:%.3f%%;font-size:1px;line-height:1px;">&nbsp;</td>' % (g, gapcls, g * 100.0 / total))
         if w == 'rule':
             col, h = inner
             tds.append('<td width="1" valign="middle" style="width:1px;"><div style="width:1px;height:%dpx;background-color:%s;font-size:1px;line-height:1px;">&nbsp;</div></td>' % (h, col))
             continue
-        tds.append('<td width="%d" class="vb-col" valign="%s" style="width:%.3f%%;">%s</td>' % (w, valign, w * 100.0 / total, inner))
+        tds.append('<td width="%d" class="%s" valign="%s"%s style="width:%.3f%%;">%s</td>' % (w, colcls, valign, ' dir="ltr"' if rtl else '', w * 100.0 / total, inner))
     st = "border-collapse:separate;"
-    bgattr = ''
+    bgattr = ' dir="rtl"' if rtl else ''
     if bg:
         st += "background-color:%s;" % bg
-        bgattr = ' bgcolor="%s"' % bg
+        bgattr += ' bgcolor="%s"' % bg
     if r: st += "border-radius:%dpx;" % r
     if fixed:
-        return ('<table role="presentation" width="%d" align="center" cellpadding="0" cellspacing="0" border="0"%s style="width:%dpx;max-width:100%%;%s"><tr>%s</tr></table>'
+        return ('<table role="presentation" width="%d" align="center" cellpadding="0" cellspacing="0" border="0"%s style="width:100%%;max-width:%dpx;%s"><tr>%s</tr></table>'
                 % (total, bgattr, total, st, ''.join(tds)))
     return ('<table role="presentation" width="100%%" cellpadding="0" cellspacing="0" border="0"%s style="%s"><tr>%s</tr></table>'
             % (bgattr, st, ''.join(tds)))
@@ -143,10 +146,52 @@ def hero(y, h, alt, link):
     return section(img('hero', 0, y, 600, h, alt, link))
 
 
+AIDEN_HEADER = 'https://d2ol7oe51mr4n9.cloudfront.net/user_3J5VVo50uL70F327Y6AS8CqWwV6/84de175c-9db0-4b16-9a60-78f06518f4d0.png'
+NAV = (('Offers', SITE + '/sale/'), ('Home Fragrance', SITE + '/about-home-fragrance/'), ('Best Sellers', SITE + '/best-sellers/'))
+ALSO_LIKE = (('GIFTING', SITE + '/all-gifts/', 'CategoriesA11%401.5x.png'),
+             ('REFILLS', SITE + '/home-fragrance/100ml-refill/', 'CategoriesA12%401.5x.png'),
+             ('OFFERS', SITE + '/sale/', 'CategoriesA13%401.5x.png'))
+BEE_IMG = 'https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/ae52a6e2-ca6a-4d8e-8944-532f952aae85/2e25bbd8-55a8-11f0-9f79-9aae66778e25/'
+
+HEAD = ('''{%- set fn = (customer.first_name or '') | trim | capitalize -%}
+<!DOCTYPE html><html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en"><head><title>Valentte</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<!--[if mso]><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch><o:AllowPNG/></o:OfficeDocumentSettings></xml><![endif]-->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Mulish:wght@400;600;700&display=swap" rel="stylesheet" type="text/css">
+<style>*{box-sizing:border-box}body{margin:0;padding:0}a[x-apple-data-detectors]{color:inherit!important;text-decoration:inherit!important}#MessageViewBody a{color:inherit;text-decoration:none}
+.vb-wrap{width:600px}
+@media (max-width:620px){.vb-wrap{width:100%!important}.vb-pad{padding-left:20px!important;padding-right:20px!important}.vb-img{width:100%!important;height:auto!important}
+.vb-stack{display:block!important;width:100%!important;max-width:100%!important}.vb-stack .vb-img{max-width:100%!important}.vb-stackgap{display:block!important;width:100%!important;height:14px!important}}
+</style></head>
+<body style="margin:0;padding:0;-webkit-text-size-adjust:none;text-size-adjust:none;background-color:#f7f7f7">''')
+
+
+def header():
+    logo = section(_a('<img src="%s" width="600" alt="Valentte London" class="vb-img" style="display:block;width:100%%;max-width:600px;height:auto;border:0;outline:none;">' % AIDEN_HEADER, SITE + '/'))
+    nav = H([(200, T(t, 'MU', 14, '#333333', lh=1.2, link=u)) for t, u in NAV], 600)
+    return logo + section(nav, pad=(0, 10, 12, 10))
+
+
+def also_like():
+    tiles = H([(200, _a('<img src="%s%s" width="200" alt="%s" class="vb-img" style="display:block;width:100%%;max-width:200px;height:auto;border:0;outline:none;">' % (BEE_IMG, f, t), u))
+               for t, u, f in ALSO_LIKE], 600)
+    rule = '<table role="presentation" width="75%" align="center" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-size:1px;line-height:1px;border-top:2px solid #e5e1da;">&nbsp;</td></tr></table>'
+    return section(V([rule, T('You may also like', 'CG', 38, '#212121', lh=1.5, link=SITE + '/best-sellers/')], 10), pad=(20, 30, 5, 30)) + section(tiles)
+
+
+def zac_footer():
+    zac = open(os.path.join(SHELL, 'zac-footer.html')).read().strip()
+    return ('<table class="row vb" align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation"><tbody><tr><td align="center">'
+            '<table class="vb-wrap" align="center" width="600" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:600px;max-width:600px;background-color:#f1ece4;">'
+            + zac + '</table></td></tr></tbody></table>')
+
+
 def wrap(body, preheader, n):
-    pre = open(os.path.join(SHELL, 'n3.html.pre')).read().replace('PREHEADER', _html.escape(preheader, quote=False))
-    suf = open(os.path.join(SHELL, 'n3.html.suf')).read().replace('situation=X', 'situation=Bloomreach-Emails-PP2x-E%d-TestB' % n)
-    h = (pre + body + suf).replace(CG, "Cormorant Garamond,Georgia,Times New Roman,serif")
+    pre = ('<div style="display:none;font-size:1px;color:#ffffff;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;mso-hide:all;">%s'
+           "{%% for i in range(40) %%}&#847;&zwnj;&nbsp;{%% endfor %%}</div>" % _html.escape(preheader, quote=False))
+    h = (HEAD + pre + '<table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#f7f7f7;"><tbody><tr><td>'
+         + header() + body + also_like() + zac_footer() + '</td></tr></tbody></table></body></html>')
+    h = h.replace(CG, "Cormorant Garamond,Georgia,Times New Roman,serif")
     # single-quote attributes and drop newlines so the blob needs almost no JSON escaping in the node payload
     h = re.sub(r'(\s[\w:-]+)="([^"\']*)"', lambda m: "%s='%s'" % (m.group(1), m.group(2)), h)
     return h.replace('\n', ' ').strip()

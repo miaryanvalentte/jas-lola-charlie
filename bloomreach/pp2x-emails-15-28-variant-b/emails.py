@@ -65,7 +65,7 @@ def e15():
                               'I’m Team Lemongrass', U['lr'])),
                    (270, card('#fbf0e2', 'sc_wnl', 306, 'White Neroli & Lemon', ('Lemon', 'White Neroli', 'Bay'),
                               '“White Neroli and Lemon is one of my favourite fragrances in a reed diffuser. Everyone comments on how nice the house smells.”  Elaine, verified buyer',
-                              'I’m Team Neroli', U['wnl']))], 552, 12), pad=(36, 24, 40, 24)),
+                              'I’m Team Neroli', U['wnl']))], 552, 12, stack=True), pad=(36, 24, 40, 24)),
         section(V([T('Can’t pick a side? Have both.', 'CG', 28, INK, lh=1.12, italic=True, link=U['bundle']),
                    T('Mix Lemongrass & Rosemary and White Neroli & Lemon in one Bundle & Save. It starts at three diffusers:', 'MU', 15, BODY, lh=1.65, link=U['bundle']),
                    H([(140, V([T(n, 'CG', 46, '#b8892b', lh=1.21, link=U['bundle']),
@@ -94,9 +94,9 @@ def e16():
         hero(106, 420, 'Autumn favourites: four scents for shorter days', U['best']),
         section(para('As the evenings draw in, these are the scents we’re reaching for. Each one comes in more than one format, so you can scent the whole house for the season.', U['best']), pad=(40, 60, 28, 60)),
         section(V([H([(263, card('sc_svl', 30, 672, 'Spicy', 'Spiced Vanilla & Leather', 'Vanilla · Cardamom · Leather', 'Diffuser · Candle · Fragrance Oil', U['svl'])),
-                      (263, card('sc_vs', 307, 672, 'Woody', 'Vanilla & Sandalwood', 'Vanilla · Tonka · Sandalwood', 'Diffuser · Candle · Fragrance Oil', U['vs']))], 540, 14),
+                      (263, card('sc_vs', 307, 672, 'Woody', 'Vanilla & Sandalwood', 'Vanilla · Tonka · Sandalwood', 'Diffuser · Candle · Fragrance Oil', U['vs']))], 540, 14, stack=True),
                    H([(263, card('sc_lav', 30, 997, 'Floral', 'Pure Lavender', 'Lavender · Herbal · Powdery', 'Diffuser · Candle · Room Mist · Wax Melts', U['lav'])),
-                      (263, card('sc_jr', 307, 997, 'Floral · Woody', 'Jasmine & Rosewood', 'Rosewood · Jasmine · Cedarwood', 'Diffuser · Fragrance Oil', U['jr']))], 540, 14)], 14),
+                      (263, card('sc_jr', 307, 997, 'Floral · Woody', 'Jasmine & Rosewood', 'Rosewood · Jasmine · Cedarwood', 'Diffuser · Fragrance Oil', U['jr']))], 540, 14, stack=True)], 14),
                 pad=(0, 30, 36, 30)),
         section(V([T('Start with a favourite', 'CG', 26, '#f4ede3', lh=1.12, italic=True, link=U['best']),
                    H([(128, fmt('dif_svl', 30, 'Diffuser', U['diff'])), (127, fmt('can_vs', 168, 'Candle', U['cand'])),
@@ -121,7 +121,7 @@ def e17():
                    (254, V([bullet(736, '12 mini room mists, one for every month'),
                             bullet(788, 'A curated mix of bestsellers and seasonal favourites'),
                             bullet(840, 'The easiest way to find your next favourite'),
-                            gap(8) + cta('Shop Mini Mists', L, align='left')], 12))], 528, 24, valign='middle'), pad=(0, 36, 36, 36)),
+                            gap(8) + cta('Shop Mini Mists', L, align='left')], 12))], 528, 24, valign='middle', stack=True), pad=(0, 36, 36, 36)),
         section(quote_block('“Love these mini sprays. Handy for the bathroom, car, bedroom - or anywhere! Great way to trial a new scent.”', 'Lisa D. · Verified buyer · ★★★★★', L),
                 bg='#f4ede3', pad=(30, 56, 30, 56)),
         section(V([T('How it works', 'CG', 34, INK, lh=1.08, link=L),
@@ -246,7 +246,7 @@ def e22():
                  T(title, 'CG', 27, tcol, 600, 1.05, 'left', link=link),
                  T(body, 'MU', 13.5, tcol, lh=1.5, align='left', link=link),
                  cta(label, link, 13, 11, 18, align='left')], 8)
-        return H([(190, img(key, 30, y, 190, 230, title, link)), (350, box(col, pad=(22, 24, 22, 24)))], 540, 0, valign='middle', bg=bg, r=6)
+        return H([(190, img(key, 30, y, 190, 230, title, link)), (350, box(col, pad=(22, 24, 22, 24)))], 540, 0, valign='middle', bg=bg, r=6, stack=True)
     return ''.join([
         hero(106, 400, 'Your perks: three ways to get more from your next order', U['bundle']),
         section(para('As one of our regulars, here’s everything you can use on your next order, all in one place.', U['bundle']), pad=(36, 60, 24, 60)),
@@ -282,7 +282,7 @@ def e23():
                 pad=(44, 36, 36, 36)),
         section(quote_block('“The smell is absolutely amazing\nAll my friends comment how lovely my home smells”', 'Sandra · Verified buyer · ★★★★★', L),
                 bg='#f4ede3', pad=(30, 56, 30, 56)),
-        section(H([(280, img('e23_three', 0, 1327, 280, 280, 'Valentte reed diffusers', U['bundle'])), (320, box(side, pad=(24, 30, 24, 30)))], 600, 0, valign='middle')),
+        section(H([(280, img('e23_three', 0, 1327, 280, 280, 'Valentte reed diffusers', U['bundle'])), (320, box(side, pad=(24, 30, 24, 30)))], 600, 0, valign='middle', stack=True)),
     ])
 
 
@@ -321,7 +321,7 @@ def e25():
                  T(also, 'MU', 13, BODY, lh=1.45, align='left', link=link)], 12)
         pic = (260, img(key, img_x, y, 260, 330, name.title(), link))
         txt = (340, box(col, pad=(26, 28, 26, 28)))
-        return section(H([pic, txt] if img_left else [txt, pic], 600, 0, valign='middle', bg='#fbf3e6'), pad=(0, 0, 16, 0))
+        return section(H([pic, txt], 600, 0, valign='middle', bg='#fbf3e6', stack=True, rtl=not img_left), pad=(0, 0, 16, 0))
     return ''.join([
         hero(106, 420, 'Bundle & Save: three scents, three rooms', U['bundle']),
         section(gap(32)),
@@ -369,7 +369,7 @@ def e27():
     def tier(bg, n, title, desc, label, mid_w, cta_w):
         row = H([(56, T(n, 'CG', 60, '#b8892b', 600, 0.9, link=L)),
                  (mid_w, V([T(title, 'CG', 24, INK, 600, 1.12, 'left', link=L), T(desc, 'MU', 13.5, INK if n == '10' else BODY, lh=1.5, align='left', link=L)], 3)),
-                 (cta_w, cta(label, L, 12.5, 10, 16))], 492, 20, valign='middle')
+                 (cta_w, cta(label, L, 12.5, 10, 16))], 492, 20, valign='middle', stack=True)
         return box(row, bg, (20, 24, 20, 24), 6)
     return ''.join([
         hero(106, 380, 'How many diffusers does your home need?', L),
