@@ -1,7 +1,7 @@
 import json, sys, html
 S='/tmp/claude-0/-home-user-jas-lola-charlie/84acea6c-1193-59d1-8e21-164804e8a510/scratchpad'
 # day -> (x of AM column, image top y)
-DAY={'26':(-7400,4757),'27':(-5280,4757),'28':(-3160,4757)}
+DAY={'26':(-7400,4757),'27':(-5280,4757),'28':(-3160,4757),'29':(-1040,4757)}
 OFF={'AM':0,'PM':640,'Evening':1280}
 NOTES=json.load(open(sys.argv[1]))
 SC=180/640; SW,SH=250,163; GAP=12
