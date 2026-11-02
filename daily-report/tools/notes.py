@@ -1,7 +1,8 @@
 import json, sys, html
 S='/tmp/claude-0/-home-user-jas-lola-charlie/84acea6c-1193-59d1-8e21-164804e8a510/scratchpad'
 # day -> (x of AM column, image top y)
-DAY={'26':(-7400,4757),'27':(-5280,4757),'28':(-3160,4757),'29':(-1040,4757),'30':(1080,4757),'31':(3200,4757)}
+DAY={'26':(-7400,4757),'27':(-5280,4757),'28':(-3160,4757),'29':(-1040,4757),'30':(1080,4757),'31':(3200,4757),'01':(5320,4757)}
+MONTH={'01':'11'}  # day -> month, default October
 OFF={'AM':0,'PM':640,'Evening':1280}
 NOTES=json.load(open(sys.argv[1]))
 SC=180/640; SW,SH=250,163; GAP=12
@@ -9,7 +10,7 @@ out=[]
 for d,(x0,ytop) in DAY.items():
   links=json.load(open(f'{S}/d{d}/links/links.json'))
   for send in ['AM','PM','Evening']:
-    name=f'{send}_Email_{d}_10_26'
+    name=f'{send}_Email_{d}_{MONTH.get(d,"10")}_26'
     ls=links[name]; tot=sum(l['v'] for l in ls)
     boxes={b['aid']:b for b in json.load(open(f'{S}/d{d}/out/{name}.boxes.json'))['boxes']}
     items=[]
