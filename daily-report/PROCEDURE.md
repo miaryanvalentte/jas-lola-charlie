@@ -34,8 +34,10 @@ Template text boxes already exist for 19–31 Oct: **update** them (stats box at
 Per send column:
 - Label `Total – whole audience + tests`; stats = **totals** across whole audience + Test A + Test B
   (open rate weighted by delivered; CTR = clicks/delivered; conv = orders/visitors; AOV = revenue/orders). SL/P1 = whole-audience version.
-- Grey panel: `Test A – OR% open · CTR% click rate: SL / P1`, same for Test B, then
-  **`Winner on clicks: <variant> (x.xx% click rate vs whole audience y.yy%)`** – highest unique click rate (clicks ÷ delivered) wins.
+- Grey panel: `Test A – OR% open · CTR% click rate · N unique clicks: SL / P1`, same for Test B, then
+  **`Winner on unique clicks: Test A|B (N vs M unique clicks; whole audience x.xx% click rate)`**.
+  From 2 Nov 2026 the winner is the test version (A vs B, ~4,800 each) with more **unique clicks**; the whole-audience
+  version (~245k) is shown for reference but is not in the contest. On a tie, the higher open rate wins; say "too close to call" if within 3 clicks.
 - Evening: `Whole Audience` stats + "No subject line test on this send."
 - Click map: one combined image (whole + tests) 180 wide at the column's left edge, y0 + 600.
   Images: create, then resize needs x, y, width + height in one call, then a second call with x, y only.
@@ -52,7 +54,7 @@ Per send column:
 
 ## 4. Winning titles sheet – https://docs.google.com/spreadsheets/d/1C8Ia61-CjHfehDDHZoB9-Xfzo6qSgctYwEmzN2crARE
 
-Tab `Sheet1`. Columns: A `Day - dd/mm/yy AM|PM`, B `SL - P1` of the winner on clicks, C click rate (2 dp, no % sign), D open rate.
+Tab `Sheet1`. Columns: A `Day - dd/mm/yy AM|PM`, B `SL - P1` of the winner on unique clicks (Test A vs Test B), C click rate (2 dp, no % sign), D open rate.
 
 ## 5. Daily write-up – Notion
 
@@ -60,7 +62,7 @@ Parent page: "Daily Campaign Email Analysis - Claude" (id `3fee99564794806886bff
 One child page per day, titled `<Weekday dd Month yyyy> – Email performance`, icon 📧, newest at the top
 (after creating, `replace_content` on the parent with the `<page>` tags listed newest first – never drop a tag).
 Sections: headline callout · headline figures table (per send + total) with vs day before / same day last week
-from the daily sheet · things to know · subject-line tests (winner on click rate) · what did / didn't work
+from the daily sheet · things to know · subject-line tests (winner = Test A vs Test B on unique clicks; still show click rate and open rate) · what did / didn't work
 (click share per block from `links.mjs`: `node links.mjs <htmlDir> <clickJsonDir> <outDir> <names…>`).
 Email the same summary to mia@valentte.com and ruby.h@valentte.com once an email connector is available.
 
@@ -100,7 +102,7 @@ bold underlined "Meeting Prep" heading, which sits below the grey intro callout 
    "2. PM" and "3. Evening" columns, add week totals and the change vs the same day last week, and note that it uses last-email-visit
    attribution, so its totals are higher than the sheet's. Also add best/worst sends,
    and revenue per 1,000 emails sent.
-2. **Subject-line tests** – every test from the week (winner on click rate), and what styles won or lost.
+2. **Subject-line tests** – every test from the week (winner = Test A vs Test B on unique clicks, with click and open rates), and what styles won or lost.
 3. **Content** – what did and didn't work, from the daily pages' click shares.
 4. **Issues** – duplicate / unexpected sends (two actions to the same list, another day's email sending early),
    scenarios still in draft, high unsubscribe shares.
