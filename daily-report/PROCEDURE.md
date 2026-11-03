@@ -28,7 +28,7 @@ Each morning, report **yesterday's** three newsletter sends (AM 7am, PM 3pm, Eve
 ## 2. Miro board – https://miro.com/app/board/uXjVEYE5ouI=/
 
 Layout (board units): day x = `-7400 + weekday * 2120` (Mon = 0); each day is 1880 wide; columns 600 wide with 40 gap.
-Week rows: w/c 12 Oct y0 = -1064, w/c 19 Oct y0 = 1507, w/c 26 Oct y0 = 4157. Images go at y0 + 600.
+Week rows: w/c 12 Oct y0 = -1064, w/c 19 Oct y0 = 1507, w/c 26 Oct y0 = 4157, w/c 2 Nov y0 = 6807 (each new week +2650; grey divider at y0-129, "Week commencing" label at x=-8100). Images go at y0 + 600.
 Template text boxes already exist for 19–31 Oct: **update** them (stats box at y0+149, panel at y0+485) – don't create new ones.
 
 Per send column:
