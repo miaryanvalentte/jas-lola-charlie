@@ -1,0 +1,16 @@
+[
+{"day":"03","send":"AM","match":"37% off Best-Selling Gift Box","kind":"worked","why":"One hero product at a clear price (£23.99, was £37.99): the subject line promised it."},
+{"day":"03","send":"AM","match":"BLACK FRIDAY EARLY ACCESS","kind":"worked","why":"Free diffuser with a code, right at the top."},
+{"day":"03","send":"AM","match":"set for Black Friday","kind":"worked","why":"Only Delivery Pass holders see it, yet it got one in ten clicks: loyal buyers."},
+{"day":"03","send":"AM","match":"24 DAYS TO GO","kind":"didnt","why":"Countdown with no offer yet: nothing to buy today."},
+{"day":"03","send":"AM","match":"Scent spotlight","kind":"didnt","why":"Scent story with no price, near the bottom."},
+{"day":"03","send":"PM","match":"Reed diffusers Up to 47% off","kind":"worked","why":"Four offers in one grid, each with its price: easy to pick one."},
+{"day":"03","send":"PM","match":"THE COUNTDOWN CONTINUES","kind":"worked","why":"Free diffuser with a code."},
+{"day":"03","send":"PM","match":"SHOP TONIGHT","kind":"worked","why":"'Why wait for Black Friday?': a reason to buy now."},
+{"day":"03","send":"PM","match":"Lemongrass & Rosemary 100ml","kind":"didnt","why":"The grid above already showed the refill price, so few scrolled down to it."},
+{"day":"03","send":"PM","match":"SHOP MINI MISTS","kind":"didnt","why":"Low-value item further down."},
+{"day":"03","send":"Evening","match":"Scratch to reveal","kind":"worked","why":"Scratch-to-reveal plus 'tonight only': curiosity drove 4 in 5 clicks."},
+{"day":"03","send":"Evening","match":"your FREE Reed Diffuser","kind":"worked","why":"Free diffuser with a code."},
+{"day":"03","send":"Evening","match":"Last chance to shop","kind":"didnt","why":"Below the fold: the scratch card took almost everything."},
+{"day":"03","send":"Evening","match":"Your delivery is on us","kind":"didnt","why":"Free delivery only helps Delivery Pass holders."}
+]
