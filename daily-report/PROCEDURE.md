@@ -119,4 +119,17 @@ How: `node bbox.mjs <day>/main <day>/hm <day>/out AM_... PM_... Evening_...` wri
 (day, send, a text snippet to match the block, kind, why), set the day's column x and image top y in
 `notes.py` (DAY dict), then `python3 notes.py notes.json > notes.svg` and send it with canvas_update_from_svg.
 Notes sit 50px right of the image, stacked so they don't overlap, each with a short divider line to its block.
+## Miro "💡 To watch" notes (from 4 Nov 2026)
+
+Mia asked for these on 4 Nov, modelled on the team's own comments on https://miro.com/app/board/uXjVHDlFJCM=/
+(their colours: light_pink, blue, orange – don't use those). Ours are **yellow** stickies starting "💡 <short title>".
+- Only add one when it's something the team should know going forward: a pattern across days (e.g. a block low two
+  days running, tests never beating the main line), a risk (same hero/offer/product repeated in one email or across
+  sends, fatigue), a click vs conversion mismatch, or a concrete test idea. Never just restate a green/pink note.
+- Check every number against the data (and the previous days' pages/sheet) before writing it. Zero notes is fine.
+- Place next to the relevant block: AM/PM in the 160px gap right of the green/pink notes (x = column + 488, width 142),
+  Evening and whole-day notes right of the Evening notes (x = Evening column + 510, width 250).
+- canvas_create_from_svg often auto-shifts a batch ~1,900px down ("auto-placement moved this batch"): always move
+  items back with canvas_update_from_svg using the returned ids, then read back to confirm.
+
 Copies of all scripts (prep.py, heatmap.mjs, links.mjs, bbox.mjs, notes.py) are in daily-report/tools/.
