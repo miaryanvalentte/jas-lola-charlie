@@ -1,13 +1,15 @@
 import json, sys, html
 S='/tmp/claude-0/-home-user-jas-lola-charlie/84acea6c-1193-59d1-8e21-164804e8a510/scratchpad'
 # day -> (x of AM column, image top y)
-DAY={'26':(-7400,4757),'27':(-5280,4757),'28':(-3160,4757),'29':(-1040,4757),'30':(1080,4757),'31':(3200,4757),'01':(5320,4757),'02':(-7400,7407),'03':(-5280,7407),'04':(-3160,7407),'05':(-1040,7407),'06':(1080,7407)}
-MONTH={'01':'11','02':'11','03':'11','04':'11','05':'11','06':'11'}  # day -> month, default October
+DAY={'26':(-7400,4757),'27':(-5280,4757),'28':(-3160,4757),'29':(-1040,4757),'30':(1080,4757),'31':(3200,4757),'01':(5320,4757),'02':(-7400,7407),'03':(-5280,7407),'04':(-3160,7407),'05':(-1040,7407),'06':(1080,7407),'07':(3200,7407),'08':(5320,7407)}
+MONTH={'01':'11','02':'11','03':'11','04':'11','05':'11','06':'11','07':'11','08':'11'}  # day -> month, default October
 OFF={'AM':0,'PM':640,'Evening':1280}
 NOTES=json.load(open(sys.argv[1]))
 SC=180/640; SW,SH=250,163; GAP=12
 out=[]
+import os
 for d,(x0,ytop) in DAY.items():
+  if not any(n['day']==d for n in NOTES) or not os.path.exists(f'{S}/d{d}/links/links.json'): continue
   links=json.load(open(f'{S}/d{d}/links/links.json'))
   for send in ['AM','PM','Evening']:
     name=f'{send}_Email_{d}_{MONTH.get(d,"10")}_26'
