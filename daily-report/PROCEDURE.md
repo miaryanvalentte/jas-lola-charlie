@@ -28,7 +28,7 @@ Each morning, report **yesterday's** three newsletter sends (AM 7am, PM 3pm, Eve
 ## 2. Miro board – https://miro.com/app/board/uXjVEYE5ouI=/
 
 Layout (board units): day x = `-7400 + weekday * 2120` (Mon = 0); each day is 1880 wide; columns 600 wide with 40 gap.
-Week rows: w/c 12 Oct y0 = -1064, w/c 19 Oct y0 = 1507, w/c 26 Oct y0 = 4157, w/c 2 Nov y0 = 6807 (each new week +2650; grey divider at y0-129, "Week commencing" label at x=-8100). Images go at y0 + 600.
+Week rows: w/c 12 Oct y0 = -1064, w/c 19 Oct y0 = 1507, w/c 26 Oct y0 = 4157, w/c 2 Nov y0 = 6807, w/c 9 Nov y0 = 9457 (each new week +2650; grey divider at y0-129, "Week commencing" label at x=-8100). Images go at y0 + 600 up to w/c 2 Nov; **from w/c 9 Nov images go at y0 + 720** to make room for the hero-test panel (see below).
 Template text boxes already exist for 19–31 Oct: **update** them (stats box at y0+149, panel at y0+485) – don't create new ones.
 
 Per send column:
@@ -54,7 +54,9 @@ Per send column:
 
 ## 4. Winning titles sheet – https://docs.google.com/spreadsheets/d/1C8Ia61-CjHfehDDHZoB9-Xfzo6qSgctYwEmzN2crARE
 
-Tab `Sheet1`. Columns: A `Day - dd/mm/yy AM|PM`, B `SL - P1` of the winner on unique clicks (Test A vs Test B), C click rate (2 dp, no % sign), D open rate.
+Tab `Title Tests` (renamed from Sheet1 on 9 Nov). Columns: A `Day - dd/mm/yy AM|PM`, B `SL - P1` of the winner on unique clicks (Test A vs Test B), C click rate (2 dp, no % sign), D open rate.
+
+Tab `Hero Tests` (from Tue 10 Nov). Columns: A `Date` as `Day - dd/mm/yy AM|PM`, B `Hero` = the winning hero version, described in plain words from its hero block (headline / image alt text, e.g. "Hero B – scratch card: 'Up to 44% off + FREE diffuser'"), C `CTR` = the winner's click rate (unique clicks ÷ delivered, 2 dp, no % sign). **Winner = Hero Test A vs Hero Test B on CTR** (Mia, 9 Nov). One row per send that has a hero test. Verify the write.
 
 ## 5. Daily write-up – Notion
 
@@ -109,6 +111,25 @@ bold underlined "Meeting Prep" heading, which sits below the grey intro callout 
 5. **This week's plan** – for each day's `dd/mm/yy Newsletter` scenario: status, trigger times and subject lines / tests
    (`search_scenarios` with designs → `python3 scenario_plan.py <saved result file>`). Add each email's status from the monday.com
    Emails board (id 1984717728, group "Daily Campaigns"). Finish with the decisions needed.
+
+## Hero tests (from Tue 10 Nov 2026)
+
+Mia, 9 Nov: "we will also be doing hero tests alongside the title tests … select the winner based on click through rate".
+- In each newsletter scenario, customers in the hero-test group (`hero_test = true`) go to a 50/50 "Hero test" A/B split; everyone
+  else outside the title-test group gets the main email. The hero versions keep the main subject line; only the top banner differs.
+- Find the hero-test send steps by action name (expect "… - Hero Test A/B"; check the day's delivered-by-action list and the
+  scenario nodes – if two steps share a name, split by `action_id` as on 5–6 Nov).
+- Per version: delivered, opens, unique clicks, **CTR = unique clicks ÷ delivered**, plus the hero block's share of that version's
+  clicks (links.mjs on the version's own click data – prep.py keeps non-"Title Test" actions as separate sends, so hero versions
+  get their own hm/main files). **Winner = higher CTR**, Hero A vs Hero B only; whole audience for reference. If CTRs are within
+  0.05 points, call it too close to call (still log the higher one).
+- Totals in the stats box/daily sheet include the hero-test emails (like title tests). The combined click map stays
+  whole audience + title tests; hero versions are reported in their own panel because their top block differs.
+- Miro (from w/c 9 Nov): second grey panel under the title panel at y0+590 (x−4, w600, h110, fill #eef3f8), text at y0+601:
+  `<b>Hero A – CTR% · N unique clicks · hero block NN% of clicks:</b> description<br/><b>Hero B – …</b><br/><b>Winner on CTR: Hero X (a% vs b%)</b>`.
+  If a send has no hero test, write "No hero test on this send." there. Images start at y0+720.
+- Notion daily page: add a "Hero tests (winner on CTR)" section after the subject-line tests.
+- Sheets: add the winner to the `Hero Tests` tab (see section 4).
 
 ## Miro "what worked / didn't" notes (from 28 Oct 2026)
 
