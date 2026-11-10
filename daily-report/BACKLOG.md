@@ -4,3 +4,4 @@ After a worker restart, CHECK THIS FILE before replying "no response requested".
 - [x] Sat 7 Nov done (Notion 413e9956479481d4a935fd457770f196)
 - [x] Sun 8 Nov done (Notion 413e99564794818abef3c219f419c7df)
 - [x] Weekly Monday prep "9th November 2026" done (Notion 413e9956479481c6b260f22a9db7e450)
+- [ ] Mon 9 Nov daily report (fired 10 Nov 05:48; scenario 6ae9c775e128207408ecbb9f; NEW week row y0=9457 needs divider+label; Miro x=-7400; images y0+720; sheet block col 1233; winners rows 52-53)
