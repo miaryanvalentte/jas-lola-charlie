@@ -157,6 +157,23 @@ Mia, 11 Nov: "We are running web popup tests on the evening emails, 50% get the 
   or "Usual popup"), Conv. Rate (2 dp, no % sign), Revenue per Visitor (£, 2 dp), Visitors (winner's). Verify the write.
 - Notion: add "Popup test (winner on conversion)" after the hero tests section.
 
+## Gamified heroes performance log – Notion (from 12 Nov 2026 run)
+
+Mia, 11 Nov: fill in the table at the bottom of "🎁 Gamified Heroes & Matching Pop-ups" (page 415e995647948180af30ca580101b2bc)
+each morning. It's the **Performance log** table: Send date | Mechanic | Skin | Segment | Prize | Open rate | CTR | Pop-up conversion | Revenue.
+- One row per send from yesterday whose hero is a game mechanic (the page's cadence is the Champions & Loyal **Evening**
+  email on Mon, Wed, Fri and Sun; also log a gamified hero in a hero test, e.g. 10 Nov PM "Light up every room", marking it as a test version).
+  No gamified send yesterday → add nothing.
+- Send date `Wed 11 Nov 2026 – Evening`; Mechanic = the page's name for it (Pick a door, Pull the cracker, Light the wick, …);
+  Skin = the look/season (e.g. "Christmas doors, purple night"); Segment = "Champions & Loyal (Evening)" or the test group and size;
+  Prize = the gift/offer the pop-up gives (e.g. "FREE diffuser, code FREEDIFF + up to 47% off").
+- Open rate and CTR (unique clicks ÷ delivered) for the gamified version (both evening versions carry the same hero, so use the send total).
+- Pop-up conversion = orders ÷ visitors for the **new matching pop-up** version (`… - Popup Test`), with the usual pop-up in brackets:
+  "8.4% (usual pop-up 6.1%)". If there was no matching pop-up, write "No matching pop-up".
+- Revenue = the whole send's same-day revenue, with the matching pop-up version's share in brackets.
+- Edit with `update_content`: replace the empty row `|  |  |  |  |  |  |  |  |  |` the first time, then add each new row
+  at the bottom of the table (oldest first). Never change anything else on the page. Fetch afterwards to check the row.
+
 ## Miro "what worked / didn't" notes (from 28 Oct 2026)
 
 Under each click map, add 3–5 sticky notes per email next to the block they describe: light green = worked,
