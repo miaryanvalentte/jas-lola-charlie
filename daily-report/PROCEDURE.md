@@ -123,7 +123,7 @@ Mia, 9 Nov: "we will also be doing hero tests alongside the title tests … sele
   clicks (links.mjs on the version's own click data – prep.py keeps non-"Title Test" actions as separate sends, so hero versions
   get their own hm/main files). **Winner = higher CTR**, Hero A vs Hero B only; whole audience for reference. If CTRs are within
   0.05 points, call it too close to call (still log the higher one).
-- **10 Nov gotcha:** the AM hero steps were named "PM Email 10/11/26 - Hero Test A/B" (action ids 49/51; PM ones 60/59). Always split
+- **10 Nov gotcha (again on 12 Nov):** the AM hero steps were named "PM Email 10/11/26 - Hero Test A/B" (action ids 49/51; PM ones 60/59). Always split
   hero actions by `action_id` and match each to its scenario node's subject. Their UTM tags also say PM: count hero visitors before
   15:00Z as AM, and add an AM-hero funnel (`.utm_campaign contains "Hero"`, purchases 07:00–15:00Z) to the AM orders/revenue.
   Hero A is not always the main email's hero (10 Nov PM: whole audience, Hero A and Hero B were three different heroes) – check the images.
@@ -134,6 +134,28 @@ Mia, 9 Nov: "we will also be doing hero tests alongside the title tests … sele
   If a send has no hero test, write "No hero test on this send." there. Images start at y0+720.
 - Notion daily page: add a "Hero tests (winner on CTR)" section after the subject-line tests.
 - Sheets: add the winner to the `Hero Tests` tab (see section 4).
+
+## Evening popup tests (from Wed 11 Nov 2026)
+
+Mia, 11 Nov: "We are running web popup tests on the evening emails, 50% get the usual popup, and 50% get the new popup."
+- Each newsletter scenario has an "A/B test" split (50/50) before the Evening send: Variant A = `Evening Email dd/mm/yy`
+  (usual popup), Variant B = `Evening Email dd/mm/yy - Popup Test`, whose links carry `?vt_popup=<parameter>`
+  (e.g. `pick-a-door-evening-11-11-26`) so clickers land on the new WordPress gift pop-up. The email content is otherwise identical.
+- **Winner = higher conversion rate (orders ÷ visitors)** for each version. The popup only appears after the click, so clicks
+  and opens can't tell the versions apart; what the popup changes is whether a visitor buys. Revenue per visitor is shown
+  as the second measure. Within 1 percentage point = too close to call (still log the higher one).
+- Per version: delivered, unique clicks (by action name), visitors (`.utm_campaign` = the action name, space and `+` spellings),
+  orders and revenue. Popup Test funnel: `session_start where .utm_campaign starts with "Evening" and .utm_campaign contains
+  "dd/mm/yy" and .utm_campaign contains "Popup"` followed by purchase within 2 hours, purchases 18:00Z–24:00Z. Usual popup =
+  the whole Evening funnel minus the Popup Test one. Evening totals in the stats box/daily sheet include both versions.
+- Describe the new popup from the email's `vt_popup` value and, if the pop-up login is set up, `popups.sh get <parameter>`
+  in the valentte-gift-popups skill (read only – never change a pop-up). Pop-up views aren't in Bloomreach.
+- Miro: in the Evening column, a panel at y0+466 (x−4, w600, h110, fill #f3eef8) with text at y0+477, font 10:
+  `<b>Usual popup – conv% · N visitors · N orders · £rev/visitor</b><br/><b>New popup (parameter) – …</b><br/><b>Winner on conversion: … (a% vs b%)</b>`,
+  and at y0+601 "No subject line or hero test on this send." If there's no popup test, keep "No subject line test on this send.".
+- Sheet: `Popup Tests` tab in the winners sheet – Date (`Day - dd/mm/yy Evening`), Popup (winner: "New – <parameter / description>"
+  or "Usual popup"), Conv. Rate (2 dp, no % sign), Revenue per Visitor (£, 2 dp), Visitors (winner's). Verify the write.
+- Notion: add "Popup test (winner on conversion)" after the hero tests section.
 
 ## Miro "what worked / didn't" notes (from 28 Oct 2026)
 
