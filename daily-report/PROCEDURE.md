@@ -123,6 +123,10 @@ Mia, 9 Nov: "we will also be doing hero tests alongside the title tests … sele
   clicks (links.mjs on the version's own click data – prep.py keeps non-"Title Test" actions as separate sends, so hero versions
   get their own hm/main files). **Winner = higher CTR**, Hero A vs Hero B only; whole audience for reference. If CTRs are within
   0.05 points, call it too close to call (still log the higher one).
+- **10 Nov gotcha:** the AM hero steps were named "PM Email 10/11/26 - Hero Test A/B" (action ids 49/51; PM ones 60/59). Always split
+  hero actions by `action_id` and match each to its scenario node's subject. Their UTM tags also say PM: count hero visitors before
+  15:00Z as AM, and add an AM-hero funnel (`.utm_campaign contains "Hero"`, purchases 07:00–15:00Z) to the AM orders/revenue.
+  Hero A is not always the main email's hero (10 Nov PM: whole audience, Hero A and Hero B were three different heroes) – check the images.
 - Totals in the stats box/daily sheet include the hero-test emails (like title tests). The combined click map stays
   whole audience + title tests; hero versions are reported in their own panel because their top block differs.
 - Miro (from w/c 9 Nov): second grey panel under the title panel at y0+590 (x−4, w600, h110, fill #eef3f8), text at y0+601:
