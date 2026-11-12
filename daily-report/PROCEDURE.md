@@ -141,21 +141,29 @@ Mia, 11 Nov: "We are running web popup tests on the evening emails, 50% get the 
 - Each newsletter scenario has an "A/B test" split (50/50) before the Evening send: Variant A = `Evening Email dd/mm/yy`
   (usual popup), Variant B = `Evening Email dd/mm/yy - Popup Test`, whose links carry `?vt_popup=<parameter>`
   (e.g. `pick-a-door-evening-11-11-26`) so clickers land on the new WordPress gift pop-up. The email content is otherwise identical.
-- **Winner = higher conversion rate (orders ÷ visitors)** for each version. The popup only appears after the click, so clicks
-  and opens can't tell the versions apart; what the popup changes is whether a visitor buys. Revenue per visitor is shown
-  as the second measure. Within 1 percentage point = too close to call (still log the higher one).
-- Per version: delivered, unique clicks (by action name), visitors (`.utm_campaign` = the action name, space and `+` spellings),
-  orders and revenue. Popup Test funnel: `session_start where .utm_campaign starts with "Evening" and .utm_campaign contains
-  "dd/mm/yy" and .utm_campaign contains "Popup"` followed by purchase within 2 hours, purchases 18:00Z–24:00Z. Usual popup =
-  the whole Evening funnel minus the Popup Test one. Evening totals in the stats box/daily sheet include both versions.
+- **Winner = higher UNIQUE CONVERSION RATE (buyers ÷ clicks)** – Mia's layout from 12 Nov (Bloomreach campaign-evaluation style).
+  The popup only appears after the click, so clicks can't separate the versions; what the popup changes is whether a clicker buys.
+  Within 1 point = still tick the higher one, but say "too close to call" in the write-ups. Show revenue and AOV alongside.
+- Per version (action `Evening Email dd/mm/yy` = usual popup, `Evening Email dd/mm/yy - Popup Test` = test popup):
+  - Clicks = unique non-bot clickers: `count first event campaign where .status = "clicked" and .bot has no value` by `campaign.action_name`.
+  - Buyers / Purchases / Revenue: `select count first event purchase, count event purchase, sum event purchase.total_price by event purchase.purchase_status
+    customers matching funnel(campaign where .action_name = "<action>" and .status = "clicked" followed by purchase in last 3 days within 1 days)`
+    since send time (18:00Z) until the report run. AOV = Revenue ÷ Purchases. Unique Conversion Rate = Buyers ÷ Clicks.
+  - Bloomreach's own campaign evaluation uses last-click attribution and drops very fast (bot-like) clicks, so its figures can differ
+    a little (Wed 11 Nov: Mia's sheet had usual 986 clicks / 37 buyers / 39 purchases / £1,551.09, test 965 / 41 / 42 / £1,205.36;
+    the funnel above gave usual 44 buyers / £2,026.20, test 44 / £1,284.31). If Mia has already filled a day, keep her figures and only tick the winner.
+  - Visitor-based figures (visitors, orders ÷ visitors, revenue per visitor) stay in the Notion page as extra context.
 - Describe the new popup from the email's `vt_popup` value and, if the pop-up login is set up, `popups.sh get <parameter>`
   in the valentte-gift-popups skill (read only – never change a pop-up). Pop-up views aren't in Bloomreach.
 - Miro: in the Evening column, a panel at y0+466 (x−4, w600, h110, fill #f3eef8) with text at y0+477, font 10:
-  `<b>Usual popup – conv% · N visitors · N orders · £rev/visitor</b><br/><b>New popup (parameter) – …</b><br/><b>Winner on conversion: … (a% vs b%)</b>`,
+  `<b>Usual popup – uCR% · N clicks · N buyers · N purchases · £rev · £AOV</b><br/><b>Test popup (parameter) – …</b><br/><b>Winner on unique conversion rate: …</b>`,
   and at y0+601 "No subject line or hero test on this send." If there's no popup test, keep "No subject line test on this send.".
-- Sheet: `Popup Tests` tab in the winners sheet – Date (`Day - dd/mm/yy Evening`), Popup (winner: "New – <parameter / description>"
-  or "Usual popup"), Conv. Rate (2 dp, no % sign), Revenue per Visitor (£, 2 dp), Visitors (winner's). Verify the write.
-- Notion: add "Popup test (winner on conversion)" after the hero tests section.
+- Sheet: `Popup Tests` tab (gid 1479064004), Mia's layout: TWO rows per evening – row 1 "Usual popup", row 2 "Test popup".
+  Columns: A Date `Day - dd/mm/yy Evening` (merged across both rows) | B Popup | C Clicks (number) | D Unique Conversion Rate
+  (number, e.g. 0.0425, formatted %) | E Buyers | F Purchases | G Revenue ("£1,205.36") | H AOV ("£28.70") | I Winner (tick box:
+  TRUE for the winner, FALSE for the other). Add rows by copyPaste of the previous pair (keeps the tick boxes/formats), merge A, then
+  write values. Verify the write.
+- Notion: add "Popup test (winner on unique conversion rate)" after the hero tests section.
 
 ## Gamified heroes performance log – Notion (from 12 Nov 2026 run)
 
