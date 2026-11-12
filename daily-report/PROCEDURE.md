@@ -163,6 +163,10 @@ Mia, 11 Nov: "We are running web popup tests on the evening emails, 50% get the 
   (number, e.g. 0.0425, formatted %) | E Buyers | F Purchases | G Revenue ("£1,205.36") | H AOV ("£28.70") | I Winner (tick box:
   TRUE for the winner, FALSE for the other). Add rows by copyPaste of the previous pair (keeps the tick boxes/formats), merge A, then
   write values. Verify the write.
+  Column B is a clickable link (Mia, 12 Nov): "Usual popup" links to the main landing link of `Evening Email dd/mm/yy`
+  (e.g. `https://valentte.com/sale/`) and "Test popup" to the same link from `Evening Email dd/mm/yy - Popup Test`, which carries
+  `?vt_popup=…` (e.g. `https://valentte.com/sale/?vt_popup=pick-a-door-evening-11-11-26`). Take both from the scenario's evening
+  email HTML (most-used href in each) and set them with `updateCells` + `textFormatRuns` `link.uri`; check `hyperlink` on read-back.
 - Notion: add "Popup test (winner on unique conversion rate)" after the hero tests section.
 
 ## Gamified heroes performance log – Notion (from 12 Nov 2026 run)
