@@ -17,7 +17,7 @@ for r in rows:
     h=r['headers']; v=r['values'][0]
     if not v: continue
     if h[0]['type']!='single' or h[1]['type']!='single': other[str(h[0].get('value'))]+=v; continue
-    act=h[0]['value'].strip(); send=re.sub(r'\s*-\s*Title Test [AB]\s*$','',act).strip()
+    act=h[0]['value'].strip(); send=re.sub(r'\s*-\s*(Title Test [AB]|Popup Test)\s*$','',act).strip()
     url=h[2]['value'] if h[2]['type']=='single' else '*'
     if 'eng.bloomreach.com' in url: url='*'
     agg[send][(h[1]['value'],url)]+=v
