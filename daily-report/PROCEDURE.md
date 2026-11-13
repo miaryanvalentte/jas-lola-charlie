@@ -173,9 +173,9 @@ Mia, 11 Nov: "We are running web popup tests on the evening emails, 50% get the 
 
 Mia, 11 Nov: fill in the table at the bottom of "🎁 Gamified Heroes & Matching Pop-ups" (page 415e995647948180af30ca580101b2bc)
 each morning. It's the **Performance log** table: Send date | Mechanic | Skin | Segment | Prize | Open rate | CTR | Pop-up conversion | Revenue.
-- One row per send from yesterday whose hero is a game mechanic (the page's cadence is the Champions & Loyal **Evening**
-  email on Mon, Wed, Fri and Sun; also log a gamified hero in a hero test, e.g. 10 Nov PM "Light up every room", marking it as a test version).
-  No gamified send yesterday → add nothing.
+- **Evening sends only** (Mia, 13 Nov): one row for yesterday's Champions & Loyal Evening email when its hero is a game
+  (usually Mon/Wed/Fri/Sun, but log any gamified evening). Do NOT log AM/PM hero tests here, even when the hero is a game.
+  No gamified evening yesterday → add nothing.
 - Send date `Wed 11 Nov 2026 – Evening`; Mechanic = the page's name for it (Pick a door, Pull the cracker, Light the wick, …);
   Skin = the look/season (e.g. "Christmas doors, purple night"); Segment = "Champions & Loyal (Evening)" or the test group and size;
   Prize = the gift/offer the pop-up gives (e.g. "FREE diffuser, code FREEDIFF + up to 47% off").
