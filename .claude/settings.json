@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "mcp__Miro"
+      "mcp__Miro",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git pull:*)"
     ]
   }
 }
