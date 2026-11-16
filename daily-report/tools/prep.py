@@ -24,6 +24,7 @@ for r in rows:
 print('unattributed:',dict(other))
 for send,c in sorted(agg.items()):
     slug=re.sub(r'\W+','_',send)
+    if not os.path.exists(f'{D}/html/{slug}.html'): print('skip (not in scenario):',send,sum(c.values())); continue
     json.dump({"P":"","rows":[[x,u,v] for (x,u),v in c.items()]},open(f'{D}/hm/{slug}.json','w'))
     shutil.copy(f'{D}/html/{slug}.html', f'{D}/main/{slug}.html')
     print(send, slug, sum(c.values()), len(c))

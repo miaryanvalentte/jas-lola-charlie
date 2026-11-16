@@ -30,7 +30,7 @@ function color(t) {
   return STOPS.at(-1)[1];
 }
 
-const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium-1194/chrome-linux/chrome' });
+const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
 const page = await browser.newPage({ viewport: { width: 640, height: 900 }, deviceScaleFactor: 2 });
 const xpathOf = () => [...document.querySelectorAll('a[data-aid]')].map(a => {
   const parts = [];

@@ -209,3 +209,6 @@ Mia asked for these on 4 Nov, modelled on the team's own comments on https://mir
   items back with canvas_update_from_svg using the returned ids, then read back to confirm.
 
 Copies of all scripts (prep.py, heatmap.mjs, links.mjs, bbox.mjs, notes.py) are in daily-report/tools/.
+The scratchpad does not survive a container reset: run from daily-report/tools with `export S=<scratchpad>` (notes.py reads $S).
+Chromium is at /opt/pw-browsers/chromium (the old chromium-1194 path is gone). prep.py skips click rows from emails not in the day's scenario.
+Popup Test clicks carry `?vt_popup=` in their URLs: strip it from the Evening hm rows before heatmap.mjs, or about half the evening clicks go unplaced (fixed 15 Nov).
