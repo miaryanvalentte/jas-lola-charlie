@@ -1,6 +1,7 @@
 # Daily email report – 5:48am (Europe/London)
 
-Each morning, report **yesterday's** three newsletter sends (AM 7am, PM 3pm, Evening 6pm).
+Each morning, report **yesterday's** three newsletter sends: **AM 7:30, PM 15:00, Evening 18:30 (UK time) – always** (Mia, 16 Nov).
+Never describe a change of send time; label the sends "AM 7:30am", "PM 3pm", "Evening 6:30pm".
 
 ## 1. Data (Bloomreach / Loomi)
 
