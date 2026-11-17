@@ -20,6 +20,7 @@ for r in rows:
     act=h[0]['value'].strip(); send=re.sub(r'\s*-\s*(Title Test [AB]|Popup Test)\s*$','',act).strip()
     url=h[2]['value'] if h[2]['type']=='single' else '*'
     if 'eng.bloomreach.com' in url: url='*'
+    url=re.sub(r'[?&]vt_popup=[^&]*','',url)  # Popup Test links carry ?vt_popup=; merge with the usual version
     agg[send][(h[1]['value'],url)]+=v
 print('unattributed:',dict(other))
 for send,c in sorted(agg.items()):
