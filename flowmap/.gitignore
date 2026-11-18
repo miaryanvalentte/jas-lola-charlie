@@ -1,0 +1,9 @@
+# Email content stays out of the (public) repo: raw scenario JSON, rendered HTML/images, model with copy
+raw/
+html/
+images/
+out/
+model.json
+state_log.jsonl
+*.tmp
+__pycache__/
