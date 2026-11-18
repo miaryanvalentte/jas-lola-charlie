@@ -149,7 +149,7 @@ def rebuild(fid):
         else:
             pending.append(i)
     g = re.search(r'<g id="f" transform="translate\(([-\d.]+),([-\d.]+)\)"', src)
-    out = (f'<svg xmlns="http://www.w3.org/2000/svg">\n<g data-miro-id="{frame}" transform="translate({g.group(1)},{g.group(2)})">\n'
+    out = (f'<svg xmlns="http://www.w3.org/2000/svg">\n<g data-miro-id="{frame}" data-frame="{html.escape(lay['title'], quote=True)}" transform="translate({g.group(1)},{g.group(2)})">\n'
            f'<rect data-type="frame" x="0" y="0" width="{lay["width"]}" height="{lay["height"]}" />\n{body}\n' + "\n".join(imgs) + "\n</g>\n</svg>")
     open(os.path.join(HERE, "out", f"rebuild_{fid}_create.svg"), "w").write(out)
     json.dump(pending, open(os.path.join(HERE, "out", f"rebuild_{fid}_slots.json"), "w"))
@@ -169,7 +169,7 @@ def relayout():
     for f in json.load(open(os.path.join(HERE, "out", "layout.json"))):
         fr = s["frames"].get(f["id"])
         if fr:
-            parts.append(f'<g data-miro-id="{fr}" transform="translate({f["x"]},{f["y"]})"><rect data-type="frame" x="0" y="0" width="{f["width"]}" height="{f["height"]}" /></g>')
+            parts.append(f'<g data-miro-id="{fr}" data-frame="{html.escape(f["title"], quote=True)}" transform="translate({f["x"]},{f["y"]})"><rect data-type="frame" x="0" y="0" width="{f["width"]}" height="{f["height"]}" /></g>')
     open(os.path.join(HERE, "out", "relayout.svg"), "w").write('<svg xmlns="http://www.w3.org/2000/svg">\n' + "\n".join(parts) + "\n</svg>")
     print(len(parts), "frames")
 
