@@ -11,6 +11,8 @@ Never describe a change of send time; label the sends "AM 7:30am", "PM 3pm", "Ev
 - **Delivered / opens / unique clicks**: per action name. Unique clicks = `count first event campaign where .status = "clicked"`
   (Bloomreach standard, no bot filter – this matches the team's "Winning Titles" sheet).
 - **Click maps**: use reliable clicks (`.bot has no value`), counted per xpath × url, then render with `heatmap.mjs`.
+  Add `and .action_name contains "dd/mm/yy"` to the click query's metric filter: without it, flow emails fill the top-30 action names and
+  small test versions drop out (17 Nov lost AM Title Test A and Hero Test A until the filter was added).
 - **Check for unexpected sends**: list every action that delivered yesterday (`count event campaign where .status="delivered"` grouped by action name),
   not just yesterday's own names. A send from another day's scenario (e.g. `Evening Email 21/10/26` going out on 19/10 because a
   planned trigger kept an old date) must be reported separately and flagged at the top of the write-up; keep it out of the day totals.
