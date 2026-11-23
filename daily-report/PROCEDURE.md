@@ -138,7 +138,13 @@ Mia, 9 Nov: "we will also be doing hero tests alongside the title tests … sele
 - Notion daily page: add a "Hero tests (winner on CTR)" section after the subject-line tests.
 - Sheets: add the winner to the `Hero Tests` tab (see section 4).
 
-## Evening popup tests (from Wed 11 Nov 2026)
+## Evening popup tests (Wed 11 – Sun 22 Nov 2026 – ENDED)
+
+**Mia, 23 Nov: "we are not doing a/b tests for the evening web popup from today onwards."** From Mon 23 Nov there is no
+popup test: skip the Miro popup panel (write "No subject line or hero test on this send." as before 11 Nov), the 'Popup Tests'
+sheet rows, the Notion "Popup test" section and the popup column of the gamified log (write "no pop-up test" there). Evening
+totals are just the one Evening email. If a "- Popup Test" step ever appears again, check with Mia before reporting it.
+Final tally (11–22 Nov): new pop-up won 6, usual won 6. The notes below are kept for reference only.
 
 Mia, 11 Nov: "We are running web popup tests on the evening emails, 50% get the usual popup, and 50% get the new popup."
 - Each newsletter scenario has an "A/B test" split (50/50) before the Evening send: Variant A = `Evening Email dd/mm/yy`
