@@ -3,6 +3,9 @@
 Each morning, report **yesterday's** three newsletter sends: **AM 7:30, PM 15:00, Evening 18:30 (UK time) – always** (Mia, 16 Nov).
 Never describe a change of send time; label the sends "AM 7:30am", "PM 3pm", "Evening 6:30pm".
 
+**Git (26 Nov):** `.claude/settings.json` allows `git add`, `git commit`, `git push`, `git pull`, but only for commands that START
+with them. Run each as its own plain Bash call from the repo root – no `cd … &&`, no `git -C`, no chaining – or auto mode blocks it.
+
 ## 1. Data (Bloomreach / Loomi)
 
 - Project `2e25bbd8-55a8-11f0-9f79-9aae66778e25`. EQL is rate-limited: 1 query per ~3s, retry on 429.
