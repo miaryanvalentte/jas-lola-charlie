@@ -225,3 +225,4 @@ Copies of all scripts (prep.py, heatmap.mjs, links.mjs, bbox.mjs, notes.py) are 
 The scratchpad does not survive a container reset: run from daily-report/tools with `export S=<scratchpad>` (notes.py reads $S).
 Chromium is at /opt/pw-browsers/chromium (the old chromium-1194 path is gone). prep.py skips click rows from emails not in the day's scenario.
 Popup Test clicks carry `?vt_popup=` in their URLs: strip it from the Evening hm rows before heatmap.mjs, or about half the evening clicks go unplaced (fixed 15 Nov).
+From 23 Nov the main PM/Evening emails themselves carry `?vt_popup=` (matching pop-up, no test). Strip it from the scratch HTML copies (single- AND double-quoted hrefs) before heatmap.mjs, or most clicks go unplaced.
